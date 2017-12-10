@@ -84,33 +84,6 @@ section {
     #mainNav .navbar-nav > li > a:hover,
     #mainNav .navbar-nav > li > a:focus:hover {
       color: #fdcc52; }
-  @media (min-width: 992px) {
-    #mainNav {
-      border-color: transparent;
-      background-color: transparent; }
-      #mainNav .navbar-brand {
-        color: fade(white, 70%); }
-        #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
-          color: white; }
-      #mainNav .navbar-nav > li > a,
-      #mainNav .navbar-nav > li > a:focus {
-        color: rgba(255, 255, 255, 0.7); }
-        #mainNav .navbar-nav > li > a:hover,
-        #mainNav .navbar-nav > li > a:focus:hover {
-          color: white; }
-      #mainNav.navbar-shrink {
-        border-color: rgba(34, 34, 34, 0.1);
-        background-color: white; }
-        #mainNav.navbar-shrink .navbar-brand {
-          color: #222222; }
-          #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
-            color: #fdcc52; }
-        #mainNav.navbar-shrink .navbar-nav > li > a,
-        #mainNav.navbar-shrink .navbar-nav > li > a:focus {
-          color: #222222; }
-          #mainNav.navbar-shrink .navbar-nav > li > a:hover,
-          #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
-            color: #fdcc52; } }
 
 header.masthead {
   position: relative;
@@ -133,27 +106,10 @@ header.masthead {
     margin-left: auto; }
       header.masthead .device-container .screen {
         margin: auto;
-        width: 50%;
+        width: 100%;
       }
       header.masthead .device-container .screen img {
         border-radius: 3px;}
-  @media (min-width: 992px) {
-    header.masthead {
-      height: 100vh;
-      min-height: 775px;
-      padding-top: 0;
-      padding-bottom: 0; }
-      header.masthead .header-content {
-        margin-bottom: 0;
-        text-align: left; }
-        header.masthead .header-content h1 {
-          font-size: 50px; }
-      header.masthead .device-container {
-        max-width: 325px; } 
-        header.masthead .device-container .screen {
-          margin: auto;
-          width: 100%;
-        } }
 
 section.download {
   position: relative;
@@ -191,9 +147,6 @@ section.features .feature-item {
 
 section.features .device-container {
   margin-bottom: 100px; }
-  @media (min-width: 992px) {
-    section.features .device-container {
-      margin-bottom: 0; } }
 
 section.features .feature-item {
   padding-top: 50px;
@@ -316,7 +269,11 @@ footer {
   font-size: 11px;
   padding: 15px 45px; }
 
-.nav-container-override{
-  max-width: 100%;
-  padding: 0 20px 0 20px;
-}
+  .container-override{
+    padding-left: 15px;
+    margin-left: 0px;
+    padding-right: 15px;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
