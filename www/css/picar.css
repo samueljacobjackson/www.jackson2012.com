@@ -56,6 +56,9 @@ section {
   section h2 {
     font-size: 50px; }
 
+nav.keep-inside {
+  max-width: 100vw;
+}
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
@@ -109,6 +112,14 @@ header.masthead {
     text-align: center; }
     header.masthead .header-content h1 {
       font-size: 30px; }
+    header.masthead ul {
+      list-style: none;
+      text-align: left; }
+      header.masthead ul a {
+        color: #ffffff;
+        display: initial; 
+        text-decoration: underline;
+        padding-left: 4px;}
   header.masthead .device-container {
     max-width: 325px;
     margin-right: auto;
@@ -197,6 +208,6 @@ footer {
     max-width: 100%;
   }
 
-.raspian-badge{
-    background: white url(https://www.raspberrypi.org/app/uploads/2015/08/raspbian.png) no-repeat top center;
+.btn-group-code {
+  padding-bottom: 15px;
 }
