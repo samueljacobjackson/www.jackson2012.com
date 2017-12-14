@@ -113,17 +113,17 @@
                 <p>
                   &emsp; A Raspberry Pi Zero W is a small single board computer made by the Raspbery Pi Foundation.
                   For more information visit <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a>
-                  It is perfect becaus of it's small size and built in Wifi. 
+                  It is perfect because of it's small size and built in Wifi. 
                   An 8GB or even a 4GB SD card for th OS is sufficient for this project.
                 </p><p>
-                  &emsp; I recommend a Creative - Live! Cam which may be bought at <a href="https://www.bestbuy.com/site/creative-live-cam-webcam-black/4425502.p">Best Buy</a>. 
+                  &emsp; I recommend a Creative - Live! Cam which runs about $20.00. 
                   You may be able to find a less expensive one on ebay, just avoid shipments from China. 
                   An OTG micro USB-to-USB is needed to connect the camera to the Pi.
                 </p><p>
                   &emsp; The most difficult component to get is the RC Car.
                   Newer cars in the stores use lipo batteries and have smaller electronics making them difficult to use.
                   Thrift stores like Salvation Army or Goodwill are the best places. 
-                  Having said that the cars there are sort of hit or miss. 
+                  Having said that, the cars there are sort of hit or miss. 
                   Often times they may not work, but for a price of 4-6 dollars a couple of duds won't break the bank. 
                   If you have bought more duds than you wanted and are feeling ambitious you could hobble together a car from working parts.
                   If you are unable to find one with a battery you will need to purchase one which will increase the cost.
@@ -134,7 +134,7 @@
                   </p>
                   <div class="list-header">Other items required include:</div>
                   <ul>
-                    <li>Jumper wires. Male to female prefered.</li>
+                    <li>Jumper wires. Female on one or both ends.</li>
                     <li>24 or 26 gage wire.</li>
                     <li>A USB adapter for a car to convert the voltage to 5 volts.</li>
                     <li>Tamiya Big Style Connector Plugs Unwired.</li>
@@ -160,11 +160,11 @@
               <div class="col-md-12 mx-auto">
                 <p>
                   &emsp; Download Raspiban from <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a>
-                  Get the lite version because there will no need for a user interface.
+                  Get the lite version because there will be no need for a user interface.
                   Next download Win32 Disk Imager <a href="https://sourceforge.net/projects/win32diskimager/"> Here </a>
                   Run the disk imager and select the .img file and your SD Card to install the OS.
                   After that is done it is time to boot the Pi.
-                  Connect it to a TV or Monitor and a keybord then provide power.
+                  Connect it to a TV or Monitor via HDMI and a keybord then provide power.
                   After it boots login with the default user name "pi" and password "raspberry".
                   Before anything we need to get the device onto the wifi. (For a more detailed guide visit <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">Raspberrypi.org's guide</a>
                 </p>
@@ -205,7 +205,7 @@
                   &emsp; Reboot by typing <code class="bash">sudo reboot</code>
                   Once it has rebooted login and type <code class="bash">ifconfig</code> and note the IP address.
                   The Pi may now be disconnected from the TV/Monitor and keyboard; they are no longer needed.
-                  Further interfacing with the Pi can be dome remotely with a SSH client.
+                  Further interfacing with the Pi can be dome remotely with an SSH client.
                   <a href="http://www.putty.org/">Putty</a>,
                   <a href="https://winscp.net/eng/download.php">WinSCP</a>, or 
                   <a href="https://mobaxterm.mobatek.net/">MobaXterm</a> will work.
@@ -284,7 +284,7 @@
 
                 <p>
                   To set up the flows for this project I have provided three flows to import: Auth, Control, and Driver.
-                  You can access node-red by opening a browser to the Pi's IP address on port 1880 in the node-red directory (e.g. 
+                  You can access Node-Red by opening a browser to the Pi's IP address on port 1880 in the node-red directory (e.g. 
                   <code class="html">http://192.168.1.22:1880/node-red</code>).
                   Open the menu in the top left of the screen and select <code class="no-highlight">Import &gt; Clipboard</code>
                   Paste the following into a new flow.
@@ -955,7 +955,7 @@
                   Any additional times this is done adds a new user.
                   If a username is reused it should update that user.
                   To delete a user open the "keys" file in <code class="no-highlight">/home/pi/.picar/www/</code>
-                  and delete that entry. I'm hope to come up with a better solution for that in the future.
+                  and delete that entry. I hope to come up with a better solution for that in the future.
                 </p>
                 <h4>View the results</h4>
                 <p>
