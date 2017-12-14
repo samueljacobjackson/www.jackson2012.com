@@ -12,18 +12,19 @@ body {
   font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif'; }
 
 a {
-  color: #fdcc52;
+  color: #b65518;
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
   transition: all .35s; }
   a:hover, a:focus {
-    color: #fcbd20; }
+    color: #fdcc52; }
 
 hr {
-  max-width: 100px;
-  margin: 25px auto 0;
-  border-width: 1px;
-  border-color: rgba(34, 34, 34, 0.1); }
+  margin: 30px 0 0 0;
+  height: 12px;
+  border: 0;
+  max-width: 100%;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5); }
 
 hr.light {
   border-color: white; }
@@ -57,8 +58,15 @@ section {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px; }
+  #mainNav .nav-container-override {
+    min-width: 100%;
+    margin: 0; 
+  }
+  #mainNav.always-shrink .nav-container-override {
+    padding: 0;
+  }
   #mainNav .navbar-brand {
-    color: #fdcc52;
+    color: #222222;
     font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: 200;
     letter-spacing: 1px; }
@@ -89,8 +97,8 @@ section {
       border-color: transparent;
       background-color: transparent; }
       #mainNav .navbar-brand {
-        color: fade(white, 70%); }
-        #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
+          color:#fdcc52; }
+        #mainNav .navbar-brand:hover {
           color: white; }
       #mainNav .navbar-nav > li > a,
       #mainNav .navbar-nav > li > a:focus {
@@ -98,6 +106,22 @@ section {
         #mainNav .navbar-nav > li > a:hover,
         #mainNav .navbar-nav > li > a:focus:hover {
           color: white; }
+      #mainNav.always-shrink {
+        border-color: rgba(34, 34, 34, 0.1);
+        background-color: white; }
+        #mainNav.always-shrink .nav-container-override {
+          max-width: 100%;
+          padding: 0 15px 0 15px; }
+        #mainNav.always-shrink .navbar-brand {
+          color: #222222; }
+          #mainNav.always-shrink .navbar-brand:hover {
+            color: #fdcc52; }
+        #mainNav.always-shrink .navbar-nav > li > a,
+        #mainNav.always-shrink .navbar-nav > li > a:focus {
+          color: #222222 }
+          #mainNav.always-shrink .navbar-nav > li > a:hover,
+          #mainNav.always-shrink .navbar-nav > li > a:focus:hover {
+            color: #fdcc52; }
       #mainNav.navbar-shrink {
         border-color: rgba(34, 34, 34, 0.1);
         background-color: white; }
@@ -125,6 +149,15 @@ header.masthead {
     max-width: 500px;
     margin-bottom: 100px;
     text-align: center; }
+    header.masthead ul > li {
+      list-style: none;
+      display: block;
+    }
+      header.masthead ul > li > a {
+        display: initial;
+        color: white;
+        text-decoration: underline;
+      }
     header.masthead .header-content h1 {
       font-size: 30px; }
   header.masthead .device-container {
@@ -315,8 +348,3 @@ footer {
 .btn-xl {
   font-size: 11px;
   padding: 15px 45px; }
-
-.nav-container-override{
-  max-width: 100%;
-  padding: 0 20px 0 20px;
-}
