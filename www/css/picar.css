@@ -1,0 +1,33 @@
+section.zero {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;  }
+    section.zero .section-heading {
+        margin-bottom: 20px; }
+        section.zero .section-heading h2 {
+        margin-top: 0; }
+        section.zero .section-heading p {
+        margin-bottom: 0; }
+    section.zero h2 {
+        font-size: 40px;
+        margin-top: 0;
+        text-align: center; }
+    section.zero .nodered-screen > img {
+        width: 100%; }      
+    section.zero .badges .badge-link {
+        display: block;
+        margin-bottom: 25px; }
+        section.zero .badges .badge-link:last-child {
+        margin-bottom: 0; }
+        section.zero .badges .badge-link img {
+        height: 128px;
+        padding-bottom: 30px }
+        @media (min-width: 768px) {
+        section.zero .badges .badge-link {
+            display: inline-block;
+            margin-bottom: 0; } }
+    @media (min-width: 768px) {
+        section.zero{
+            text-align: left; }
+        section.zero h2 {
+        font-size: 55px; } }

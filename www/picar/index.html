@@ -26,6 +26,7 @@
 
     <!-- Custom styles -->
     <link href="../css/jackson2012.css" rel="stylesheet">
+    <link href="../css/picar.css" rel="stylesheet">
     
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -36,7 +37,11 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light fixed-top always-shrink" id="mainNav">
         <div class="container nav-container-override">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top">Jackson 2012</a>
+          <div>
+            <a class="navbar-brand js-scroll-trigger" href="/">Jackson 2012</a>
+            <span class="bullet">&bull;</span>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Pi Car</a>
+          </div>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fa fa-bars"></i>
@@ -102,13 +107,13 @@
       </div>
     </header>
 
-    <section class="text-left zero" id="zero">
+    <section class="zero" id="zero">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
             <h2 class="section-heading text-center">Overview</h2>
             <div class="row">
-              <div class="col-md-12 mx-auto">
+              <div class="col-md-12 guide  mx-auto">
                 <p>
                   &emsp; A Raspberry Pi Zero W is a small single board computer made by the Raspbery Pi Foundation.
                   For more information visit <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a>
@@ -147,7 +152,7 @@
     </section>
 
 
-    <section class="text-left zero" id="one">
+    <section class="zero" id="one">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
@@ -156,7 +161,7 @@
               <a class="badge-link" href="https://www.raspberrypi.org/downloads/"><img src="../img/raspbian-badge.png" alt=""></a>
             </div>
             <div class="row">
-              <div class="col-md-12 mx-auto">
+              <div class="col-md-12 guide  mx-auto">
                 <p>
                   &emsp; Download Raspiban from <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a>
                   Get the lite version because there will be no need for a user interface.
@@ -229,7 +234,7 @@
       </div>
     </section>
 
-    <section class="text-left zero" id="two">
+    <section class="zero" id="two">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
@@ -238,7 +243,7 @@
               <a class="badge-link" href="https://nodered.org/"><img src="../img/nodered-badge.png" alt=""></a>
             </div>
             <div class="row">
-              <div class="col-md-12 mx-auto">
+              <div class="col-md-12 guide  mx-auto">
                 <p>
                   Node Red will hadle the web pages and controlling the GPIOs. For a detailed setup guide visit <a href="https://nodered.org/docs/hardware/raspberrypi">Node-RED : Running on Raspberry Pi</a>
                 </p>
@@ -574,7 +579,9 @@
                       </code>
                     </pre>
                   </div>
-                  <img src="../img/picar-auth-flow.png" />
+                  <div class="nodered-screen">
+                    <img src="../img/picar-auth-flow.png" />
+                  </div>
                 <p>
                   Open the hmac node by double clicking it. Enter a secret key to encrypt passwords.
                   This key should be the same as the one in the Driver flow (more on that).
@@ -731,7 +738,9 @@
                     </code>
                   </pre>
                 </div>
-                <img src="../img/picar-control-flow.png" />
+                <div class="nodered-screen">
+                    <img src="../img/picar-control-flow.png" />
+                </div>
                 <p>
                     Note the pins use for controling the car.
                     Top to bottom they are: 35-forward, 37-reverse, 38-left, 36-right.
@@ -739,7 +748,7 @@
                 </p>
 
                 <p>
-                    Paste the folloing into a new flow. 
+                    Paste the following into a new flow. 
                     This flow will allow the creation of username &amp; password combinations with the secret key.
                 </p>
 
@@ -930,8 +939,9 @@
                     </code>
                   </pre>
                 </div>
-                <img src="../img/picar-driver-flow.png" />
-
+                <div class="nodered-screen">
+                    <img src="../img/picar-driver-flow.png" />
+                </div>
                 <p>
                   Again open the hmac node by double clicking it.
                   Enter the same secret key you used in the Auth flow.
@@ -971,7 +981,7 @@
       </div>
     </section>
 
-    <section class="text-left zero" id="three">
+    <section class="zero" id="three">
       <div class="container">
         <div class="row">
         <div class="col-md-8 mx-auto">
@@ -980,7 +990,7 @@
                 <a href="https://sourceforge.net/projects/mjpg-streamer/"><h4 style="color: rgb(199, 9, 9);">MJPG-Streamer</h4></a>
             </div>
             <div class="row">
-              <div class="col-md-12 mx-auto">
+              <div class="col-md-12 guide  mx-auto">
                 <p>
                     Please check back later.
                 </p>
