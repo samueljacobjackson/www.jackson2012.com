@@ -1,33 +1,104 @@
-section.zero {
+pre {
+    text-align: left;
+}
+#mainNav.always-shrink .nav-container-override {
+    padding: 0;
+}
+#mainNav .bullet {
+    color: #777777;
+    font-size: 34px;
+    vertical-align: sub;
+    line-height: 1;
+    margin-right: 8px;
+}
+@media (min-width: 992px) {
+    #mainNav.always-shrink .nav-container-override {
+        max-width: 100%;
+        padding: 0 15px 0 15px;
+    }
+    #mainNav.always-shrink {
+        border-color: rgba(34, 34, 34, 0.1);
+        background-color: white;
+    }
+    #mainNav.always-shrink .navbar-brand {
+        color: #222222;
+    }
+    #mainNav.always-shrink .navbar-brand:hover {
+        color: #fdcc52;
+    }
+    #mainNav.always-shrink .navbar-nav > li > a,
+    #mainNav.always-shrink .navbar-nav > li > a:focus {
+        color: #222222
+    }
+    #mainNav.always-shrink .navbar-nav > li > a:hover,
+    #mainNav.always-shrink .navbar-nav > li > a:focus:hover {
+        color: #fdcc52;
+    }
+}
+header.masthead h4 {
+    text-align: left;
+}
+header.masthead ul > li {
+    list-style: none;
+    display: block;
+    text-align: left;
+}
+header.masthead ul > li > a {
+    display: initial;
+    color: white;
+    text-decoration: underline;
+}
+section.guide {
     padding-top: 20px;
     padding-bottom: 20px;
-    text-align: center;  }
-    section.zero .section-heading {
-        margin-bottom: 20px; }
-        section.zero .section-heading h2 {
-        margin-top: 0; }
-        section.zero .section-heading p {
-        margin-bottom: 0; }
-    section.zero h2 {
-        font-size: 40px;
-        margin-top: 0;
-        text-align: center; }
-    section.zero .nodered-screen > img {
-        width: 100%; }      
-    section.zero .badges .badge-link {
-        display: block;
-        margin-bottom: 25px; }
-        section.zero .badges .badge-link:last-child {
-        margin-bottom: 0; }
-        section.zero .badges .badge-link img {
-        height: 128px;
-        padding-bottom: 30px }
-        @media (min-width: 768px) {
-        section.zero .badges .badge-link {
-            display: inline-block;
-            margin-bottom: 0; } }
-    @media (min-width: 768px) {
-        section.zero{
-            text-align: left; }
-        section.zero h2 {
-        font-size: 55px; } }
+    text-align: center;
+}
+section.guide .section-heading {
+    margin-bottom: 20px;
+}
+section.guide .section-heading h2 {
+    margin-top: 0;
+}
+section.guide .section-heading p {
+    margin-bottom: 0;
+}
+section.guide h2 {
+    font-size: 40px;
+    margin-top: 0;
+    text-align: center;
+}
+section.guide .nodered-screen > img {
+    display: none;
+}
+section.guide ul > li {
+    text-align: left;
+}
+section.guide .badges .badge-link {
+    display: block;
+    margin-bottom: 25px;
+}
+section.guide .badges .badge-link:last-child {
+    margin-bottom: 0;
+}
+section.guide .badges .badge-link img {
+    height: 128px;
+    padding-bottom: 30px
+}
+@media (min-width: 768px) {
+    section.guide .nodered-screen > img {
+        display: initial;
+        max-width: 100%;
+    }
+    section.guide .badges .badge-link {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 768px) {
+    section.guide {
+        text-align: left;
+    }
+    section.guide h2 {
+        font-size: 55px;
+    }
+}
