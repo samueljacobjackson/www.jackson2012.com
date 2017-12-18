@@ -1,19 +1,29 @@
 $('document').ready(function() {
     $('#copy-picar-auth-flow-code').on('click', function() {
-        copyToClipboard('.auth-code');
+        copyToClipboard('.auth-code', true);
     });
     $('#copy-picar-control-flow-code').on('click', function() {
-        copyToClipboard('.control-code');
+        copyToClipboard('.control-code', true);
+    });
+    $('#copy-picar-cred-flow-code').on('click', function() {
+        copyToClipboard('.cred-code', true);
+    });
+    $('#copy-mpjg-streamer-init-code').on('click', function() {
+        copyToClipboard('.mjpeg-streamer-code', false);
     });
 });
 
 // A PEN BY Shaik Maqsood
 // https://codepen.io/shaikmaqsood/pen/XmydxJ/
-var copyToClipboard = function(element) {
-    var $temp = $("<input>");
+var copyToClipboard = function(element, minify) {
+    var $temp = $('<textarea name="Text1" cols="40" rows="5"></textarea>');
     $("body").append($temp);
     //      Minify
-    $temp.val(JSON.stringify($.parseJSON($(element).text()))).select();
+    if(minify){
+        $temp.val(JSON.stringify($.parseJSON($(element).text()))).select();
+    } else {
+        $temp.val($(element).text()).select();
+    }
     //$temp.val($(element).text()).select();
     document.execCommand("copy");
     $temp.remove();

@@ -69,6 +69,7 @@ section.guide h2 {
 }
 section.guide .nodered-screen > img {
     display: none;
+    padding: 20px 0;
 }
 section.guide ul > li {
     text-align: left;
@@ -83,6 +84,9 @@ section.guide .badges .badge-link:last-child {
 section.guide .badges .badge-link img {
     height: 128px;
     padding-bottom: 30px
+}
+section .hidden-code-block {
+    padding-top: 20px;
 }
 @media (min-width: 768px) {
     section.guide .nodered-screen > img {
