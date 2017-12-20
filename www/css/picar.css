@@ -43,10 +43,14 @@ header.masthead ul > li {
     display: block;
     text-align: left;
 }
-header.masthead ul > li > a {
+header.masthead ol > li > a,
+header.masthead ol > li > a:focus  {
     display: initial;
     color: white;
-    text-decoration: underline;
+}
+header.masthead ol > li > a:hover,
+header.masthead ol > li > a:focus:hover {
+    color: #fdcc52;
 }
 section.guide {
     padding-top: 20px;
