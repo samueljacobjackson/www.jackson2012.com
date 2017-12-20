@@ -16,7 +16,7 @@ $('document').ready(function() {
 // A PEN BY Shaik Maqsood
 // https://codepen.io/shaikmaqsood/pen/XmydxJ/
 var copyToClipboard = function(element, minify) {
-    var $temp = $('<textarea name="Text1" cols="40" rows="5"></textarea>');
+    var $temp = $('<textarea></textarea>');
     $("body").append($temp);
     //      Minify
     if(minify){
