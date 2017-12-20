@@ -43,13 +43,17 @@ header.masthead ul > li {
     display: block;
     text-align: left;
 }
-header.masthead ol > li > a,
-header.masthead ol > li > a:focus  {
+header.masthead ul > li > a,
+header.masthead ul > li > a:focus  {
     display: initial;
     color: white;
+    font-size: 14px;
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
-header.masthead ol > li > a:hover,
-header.masthead ol > li > a:focus:hover {
+header.masthead ul > li > a:hover,
+header.masthead ul > li > a:focus:hover {
     color: #fdcc52;
 }
 section.guide {
