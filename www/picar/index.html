@@ -72,6 +72,7 @@
             <div class="row h-100">
                 <div class="col-lg-7 my-auto">
                     <div class="header-content mx-auto">
+
                         <h1 class="mb-5">Raspi Car</h1>
                         <p>
                             This is a project to make an internet controlled car from an old RC car and a Raspberry Pi.
@@ -79,6 +80,7 @@
                             The components may be purchased for about $50.00 making this an affordable and fun project.
                             Some soldering is required so you will need a soldering iron.
                         </p>
+
                         <h4>Jump To:</h4>
                         <ul start="0" class="text-left">
                             <li>
@@ -113,6 +115,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
+
                     <h2 class="section-heading text-center">Component List</h2>
                     <div class="row">
                         <div class="col-md-12 mx-auto">
@@ -200,6 +203,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
+
                     <h2 class="section-heading text-center">Install Raspian OS</h2>
                     <div class="badges text-center">
                         <a class="badge-link" href="https://www.raspberrypi.org/downloads/">
@@ -208,16 +212,18 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 mx-auto">
+
+                            <h4>Download Raspiban</h4>
                             <p>
-                                <h4>Download Raspiban</h4>
                                 You can get this image via direct download or torrent
                                 <a href="https://www.raspberrypi.org/downloads/raspbian/">here</a>.
                                 The regular version comes with a graphical user interface and will occupy more disk space.
                                 Get the lite version because there will be no need for the user interface.
                                 Every thing in this guide can be done with the command line interface.
                             </p>
+                            
+                            <h4>Download Win32 Disk Imager</h4>
                             <p>
-                                <h4>Download Win32 Disk Imager</h4>
                                 The executable may be found
                                 <a href="https://sourceforge.net/projects/win32diskimager/">here</a>. 
                                 Extract the .img file from your Raspbian download and run the disk imager.
@@ -229,8 +235,8 @@
                                 <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">here</a>.)
                             </p>
 
+                            <h4>Set up WiFi</h4>
                             <p>
-                                <h4>Set up WiFi</h4>
                                 <p>To edit the supplicant file and enter your WiFi credentials, run:</p>
                             </p>
 
@@ -254,8 +260,8 @@
                                 <code class="no-highlight">ctrl-X</code> to save and exit.
                             </p>
 
+                            <h4>Enable SSH</h4>
                             <p>
-                                <h4>Enable SSH</h4>
                                 By default on Raspbian SSH is disabled. To enable it run:
                             </p>
                             <p>
@@ -305,6 +311,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
+
                     <h2 class="section-heading text-center">Node Red</h2>
                     <div class="badges text-center">
                         <a class="badge-link" href="https://nodered.org/">
@@ -359,8 +366,8 @@
                                 <code class="html">http://ip_address/node-red</code>).
                             </p>
 
+                            <h4>Authentication</h4>
                             <p>
-                                <h3>Authentication</h3>
                                 Open the menu in the top left of the screen and select
                                 <code class="no-highlight">Import &gt; Clipboard</code> Paste the following into a new flow.
                             </p>
@@ -650,8 +657,8 @@
                                 This key should be the same as the one in the Credentials flow (more on that).
                             </p>
 
+                            <h4>Control</h4>
                             <p>
-                                <h3>Control</h3>
                                 For the flow that will control the GPIOs, paste the following into a new flow.
                             </p>
     
@@ -804,10 +811,7 @@
                                 Use these pins when connecting the Pi to the RC car receiver (more on that).
                             </p>
 
-                            <p>
-                                <h3>Credentials</h3>
-                            </p>
-
+                            <h4>Credentials</h4>
                             <p>
                                 Paste the following into a new flow. This flow will allow the creation of username &amp;
                                 password combinations with the secret key.
@@ -1023,7 +1027,8 @@
                                 <code class="no-highlight">/home/pi/.picar/www/</code>
                                 and delete that entry. I hope to come up with a better solution for that in the future.
                             </p>
-                            <h3>View the results</h3>
+
+                            <h4>View the results</h4>
                             <p>
                                 Point a browser to the root of the Pi's webserver on port 1880.
                                 <code class="html">http://ip_address:1880</code> .
@@ -1058,18 +1063,15 @@
                                 <a href="https://jacobsalmela.com/2014/05/31/raspberry-pi-webcam-using-mjpg-streamer-over-internet/">here</a>.
                             </p>
 
-                            <h4>
-                                Two Methods: Camera Module or USB Webcam
-                            </h4>
-
+                            <h4>Two Methods: Camera Module or USB Webcam</h4>
                             <p>
                                 You can use the Raspberry Pi camera module, or any compatible USB Webcam.
                                 I found that that the USB Webcam method is easier  and better quality,
                                 but there are instructions for both. In the walkthrough, I’ll be using a USB Webcam.
                             </p>
 
+                            <h4>Check If the Pi Recognizes the Webcam</h4>
                             <p>
-                                <h4>Check If the Pi Recognizes the Webcam</h4>
                                 Plug in the USB Webcam and run the command:
                             </p>
 
@@ -1097,8 +1099,8 @@
                                 <pre><code class="shell">  sudo ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h</code></pre>
                             </p>
 
+                            <h4>Download and Compile MJPG-Streamer</h4>
                             <p>
-                                <h4>Download and Compile MJPG-Streamer</h4>
                                 Unfortunately, MJPG-Streamer isn’t available via apt-get, so we need to compile it from source.
                                 This may be more complex than setting up a Webcam using Motion, but I found MJPG-Streamer to be
                                 less resource-intensive so the additional complexity of setting it up is worth it.
@@ -1109,8 +1111,8 @@
                                 The easiest is via subversion, which is what I will walkthrough.
                             </p>
 
+                            <h4>Download via Subversion (svn)</h4>
                             <p>
-                                <h4>Download via Subversion (svn)</h4>
                                 Install subversion (if necessary).
                             </p>
 
@@ -1157,8 +1159,8 @@
                                 I chose to just install what was necessary to save on storage space and resources.
                             </p>
 
+                            <h4>Move MJPG-Streamer to an Alternate Location.</h4>
                             <p>
-                                <h4>Move MJPG-Streamer to an Alternate Location.</h4>
                                 You could run MJPG-Streamer right from the folder after it is compiled (./mjpg_streamer ),
                                 but it might be better to give it a permanent home.
                             </p>
@@ -1180,8 +1182,8 @@
                                 You will just need to modify the paths for the rest of the walkthrough.
                             </p>
 
+                            <h4>Export Paths</h4>
                             <p>
-                                <h4>Export Paths</h4>
                                 If you did try to run Mjpg-Streamer now, it probably returned an error about search paths.
                                 This is because right now, the system doesn’t know where to find the files. This is an easy fix.
                                 Just append the following line to <code class="shell">~/.bashrc</code>
@@ -1208,8 +1210,8 @@
                                 We are almost ready to start capturing images.
                             </p>
 
+                            <h4>Install A Patch</h4>
                             <p>
-                                <h4>Install A Patch</h4>
                                 Many users reported a blank white screen when trying to use it. Apparently,
                                 <a href="../assets/input_uvc_patch.txt"> this patch fixes it</a>.
                             </p>
@@ -1221,8 +1223,8 @@
   sudo make DESTDIR=/usr/local install</code></pre>
                             </p>
 
+                            <h4>Using input_uvc.so to Capture Images</h4>
                             <p>
-                                <h4>Using input_uvc.so to Capture Images</h4>
                                 Start running Mjpg-Streamer with the command:
                             </p>
 
@@ -1287,8 +1289,8 @@
                                 which just kills the process ID (PID) of MJPG-Streamer.
                             </p>
 
+                            <h4>View the Webcam Live-stream From a Browser</h4>
                             <p>
-                                <h4>View the Webcam Live-stream From a Browser</h4>
                                 <b>(while connected to your local network)</b>
                             </p>
                             <p>
@@ -1462,8 +1464,8 @@
                                     <h3>Success!</h3>
                                 </p>
 
+                                <h4>Integrating Mjpg-Stream into the Pi Car</h4>
                                 <p>
-                                    <h3>Integrating Mjpg-Stream into the Pi Car</h3>
                                     Now if you go to the Pi Car webserver address
                                     <code class="no-highlight">http://ip_address:1880/</code>
                                     You should see the video. (Don't forget to plug in the web cam).
@@ -1472,6 +1474,7 @@
                                     If you did not change the port to 8081 you will have to update the port in
                                     <code class="no-highloght">/home/pi/.picar/main.js</code> . Change line 3.
                                 </p>
+                                <hr>
                             </div>
                         </div>
                     </div>
@@ -1479,7 +1482,7 @@
             </div>
     </section>
 
-    <section class="zero" id="four">
+    <section class="guide" id="four">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
@@ -1489,8 +1492,105 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 guide  mx-auto">
+                            
+                            <h4>Open car up</h4>
                             <p>
-                                Check back later.
+                                Remove the car cover and expose the receiver board.
+                                On that board there is a chip, it should be the only or largest chip. 
+                                Here is a data sheet for a transmitter and receiver that is common to all RC cars.
+                                <a href="../assets/RX2_TX2_Datasheet.pdf">RX2_TX2_Datasheet.pdf</a>
+                                On page 5 the second chart lists the pins for RX2.
+                                Note the pin numbers.
+                                <ul>
+                                    <li>Pin 6 (Right)</li>
+                                    <li>Pin 7 (Left)</li>
+                                    <li>Pin 10 (Backward)</li>
+                                    <li>Pin 11 (Forward)</li>
+                                </ul>
+                            </p>
+                            <p>
+                                These pins should be the same across most cars.
+                            </p>
+
+                            <p>
+                                There are two types of chips you may find.
+                                <ul>
+                                    <li><b>Surface mount</b>
+                                        <br />&emsp;More and more cars are using surface mount chips.
+                                        These make things a little harder to solder as the connectors are very small.
+                                        In this case you may want to leave the chip on and just solder to the appropiate leg.
+                                        Leaving the chip on shouldn't matter.
+                                    </li>
+                                    <br/>
+                                    <li><b>Through Hole</b>
+                                        <br />&emsp;Older cars and cheaper cars will have a larger through hole chips.
+                                        It is sometimes easier to remove the chip and solder directly to the board.
+                                        In this case using the male end of a jumper wire to go through the hole.
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                Solder four jumper wires at least 5 inches long to the four direction pins.
+                                Some cars have the chip face down so try to color code your wires for easy reference.
+                                Solder one more wire to the ground pin of the chip. I prefer a black wire for ground.
+                            </p>
+
+                            <h4>Connect the Battery</h4>
+                            <p>
+                                Also on the board there should be wires to the battery.
+                                Cut cut those wires as far from the board as you can.
+                                If the battery was connected via a pcb mount battery holder,
+                                solder some wires at least 6 inches from the board to those.
+                            </p>
+
+                            <p>
+                                Open the USB car charger and expose the circuits within.
+                                Solder two wires to the positive and ground  connections at least 6 inches from the board.
+                            </p>
+
+                            <p>
+                                With the ends of the power wires from both the receiver and the USB charger,
+                                crimp them into a Tamiya connector together, positive with positive and ground with ground.
+                                Use a female connector so it can connected to the battery.
+                            </p>
+
+                            <h4>Test the Receiver</h4>
+                            <p>
+                                Connect your battery to your new connector. Make sure the battery is charged,
+                                and if the car has one, the power switch is in the on position.
+                                Connect the ground pin or wire to the ground of the power.
+                                Apply 5 volts to the wires or pins you have on the receiver.
+                                Set the car up on a block before forward or backward.
+                                If the car responds correctly, congratulations you have not bought a dud.
+                                If not, check your soldering.
+                            </p>
+
+                            <h4>Connect the Raspberry Pi</h4>
+                            <p>
+                                Plug the web cam into the Pi and either attach the Pi to external power or the battery.
+                                Connect the female end of the jumper to the pins that correspond to Node-Red.
+                                Connect the ground pin from the receiver to the ground pin on the Raspberry Pi.
+                                <ul>
+                                    <li>35 - Forward</li>
+                                    <li>37 - Reverse</li>
+                                    <li>38 - Left</li>
+                                    <li>36 - Right</li>
+                                    <li>34 - Ground</li>
+                                </ul>
+                            </p>
+                            <p>
+                                Go to the Pi's web page
+                                <code class="html">http://ip_address:1880</code> and test the controls.
+                                If there is no response check the flow at
+                                <code class="html">http://ip_address:1880/node-red</code>
+                                If every thing works, celebrate.
+                            </p>
+
+                            <h4>Button it Up</h4>
+                            <p>
+                                <p>
+                                    TBC...
+                                </p>
                             </p>
                         </div>
                     </div>
