@@ -67,6 +67,11 @@ section.guide .section-heading {
 section.guide .section-heading h2 {
     margin-top: 0;
 }
+section.guide h4 {
+    margin-top: 40px;
+    font-weight: 500;
+    color: #6c6c6c
+}
 section.guide .section-heading p {
     margin-bottom: 0;
 }
