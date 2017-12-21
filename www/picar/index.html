@@ -1363,10 +1363,6 @@
                                     <li>
                                         -q 50: Lowers the image quality for a faster feed. 50 is fast and an acceptable quality.
                                     </li>
-                                    <li>
-                                        -p 8081: The port I am using is 8081. If you do not make this change you will need to
-                                        change it in <code class="no-highlight">/home/pi/.picar/main.js</code> on line 3.
-                                    </li>
                                 </ul>
                             </p>
 
@@ -1380,7 +1376,7 @@
 
                             <p>
                                 <pre><code class="shell">  #!/bin/bash
-  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www -p 8081"</code></pre>
+  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"</code></pre>
                             </p>
 
                             <p>
@@ -1429,7 +1425,7 @@
   case "$1" in
           start)
                   f_message "Starting mjpg_streamer"
-                  /usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so" -o "/usr/local/lib/output_http.so -w /usr/local/www -c username:password"
+                  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"
                   sleep 2
                   f_message "mjpg_streamer started"
                   ;;
@@ -1441,7 +1437,7 @@
           restart)
                   f_message "Restarting daemon: mjpg_streamer"
                   killall mjpg_streamer
-                  /usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so" -o "/usr/local/lib/output_http.so -w /usr/local/www -c username:password"
+                  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"
                   sleep 2
                   f_message "Restarted daemon: mjpg_streamer"
                   ;;
@@ -1483,8 +1479,6 @@
                                     You should see the video.
                                     Sometimes Mjpg-Streamer will not start if there is no camera connected;
                                     to ensure video works, connect the camera before booting the Pi.
-                                    If you did not change the port to 8081 you will have to update the port in
-                                    <code class="no-highloght">/home/pi/.picar/main.js</code> . Change line 3.
                                 </p>
                                 <hr>
                             </div>
