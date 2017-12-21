@@ -80,10 +80,14 @@ section.guide h2 {
     margin-top: 0;
     text-align: center;
 }
-section.guide .nodered-screen > img {
+section.guide .nodered-screen > img,
+section.guide .chip-shot > img {
     display: none;
+}
+section.guide .nodered-screen> img{
     padding: 20px 0;
 }
+
 section.guide ul > li {
     text-align: left;
 }
@@ -102,7 +106,8 @@ section .hidden-code-block {
     padding-top: 20px;
 }
 @media (min-width: 768px) {
-    section.guide .nodered-screen > img {
+    section.guide .nodered-screen > img,
+    section.guide .chip-shot > img  {
         display: initial;
         max-width: 100%;
     }
