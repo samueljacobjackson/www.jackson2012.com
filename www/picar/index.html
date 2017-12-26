@@ -253,23 +253,23 @@
                             </p>
 
                             <p>    
-                                <pre><code class="shell">  sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</code></pre>
+                                <pre><code class="shell"><div>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></code></pre>
                             </p>
 
                             <p>
-                                Edit the file to have these lines.
+                                Add these lines to the bottom.
                             </p>
 
                             <p>
-                                <pre><code class="bash">  network={
-          ssid="name_of_wifi"
-          psk="passkey_of_wifi"
-  }</code></pre>
+                                <pre><code class="shell"><div>network={
+        ssid="name_of_wifi"
+        psk="passkey_of_wifi"
+}</div></code></pre>
                             </p>
 
                             <p>
                                 Press
-                                <code class="no-highlight">ctrl-X</code> to save and exit.
+                                <code class="no-highlight">ctrl-X</code>, save and exit.
                             </p>
 
                             <h4>Enable SSH</h4>
@@ -277,8 +277,8 @@
                                 By default on Raspbian SSH is disabled. To enable it run:
                             </p>
                             <p>
-                                <pre><code class="shell">  sudo systemctl enable ssh 
-  sudo systemctl start ssh</code></pre>
+                                <pre><code class="shell"><div>sudo systemctl enable ssh 
+sudo systemctl start ssh</div></code></pre>
                             </p>
 
                             <p>
@@ -286,7 +286,7 @@
                             <p>
                                 
                             <p>
-                                <pre><code class="bash">  sudo reboot</code></pre>
+                                <pre><code class="shell"><div>sudo reboot</div></code></pre>
                             </p>
 
                             <p>
@@ -294,15 +294,15 @@
                             </p>
                                 
                             </p>
-                                <pre><code class="bash">  ifconfig</code></pre>
+                                <pre><code class="shell"><div>ifconfig</div></code></pre>
                             </p>
 
                             <p>
-                                Note the IP address. The Pi may now be disconnected from the TV/monitor and keyboard;
+                                Note the IP address. If there is not ip address listed then check the file for WiFi.
+                                The Pi may now be disconnected from the TV/monitor and keyboard;
                                 they are no longer needed. Further interfacing with the Pi can be done remotely with
                                 an SSH client.
-                                <a href="http://www.putty.org/">Putty</a>,
-                                <a href="https://winscp.net/eng/download.php">WinSCP</a>, or
+                                <a href="https://winscp.net/eng/download.php">WinSCP</a> or
                                 <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>
                                 will work. Select your favorite and log into the IP address from before with the default
                                 username and password.
@@ -310,8 +310,8 @@
 
                             <p>
                                 Before we enter any commands we we want to update the Pi to the latest. Run:
-                                <pre><code class="shell">  sudo apt-get update
-  sudo apt-get upgrade</code></pre>
+                                <pre><code class="shell"><div>sudo apt-get update
+sudo apt-get upgrade</div></code></pre>
                             </p>
                             <hr>
                         </div>
@@ -339,49 +339,71 @@
 
                             <p>
                                 To get the latest node red for Raspberry Pi run:
-                                <pre><code class="shell">  bash &lt;(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)</code></pre>
+                                <pre><code class="shell"><div>bash &lt;(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)</div></code></pre>
                             </p>
 
                             <p>
-                                Adjust the settings for node red by running:
-                                <pre><code class="shell">  nano /home/pi/.node-red/settings.js</code></pre>
+                                We need to tell Node-Red where to look for the web page assets.
+                                This will become the root directory for any web pages served by http nodes.
+                                Run:
                             </p>
+
                             <p>
-                                And change the following settings:
+                                <pre><code class="shell"><div>nano /home/pi/.node-red/settings.js</div></code></pre>
                             </p>
+
                             <p>
-                                <code class- "bash:">  httpAdminRoot: </code> to
-                                <code class="bash">'/node-red/'</code>
+                                And change the line:<br />
+                                <code class="shell"><div>//httpStatic: '/home/nol/node-red-static/',</code>
+                                <br/>
+                                to:
+                                <br />
+                                <code class="shell"><div>httpStatic: '/home/pi/.picar/www/,</code>
                             </p>
+
                             <p>
-                                <code class="bash">httpStatic: </code> to
-                                <code class="bash">'/home/pi/.picar/www/'</code>
+                                Press
+                                <code class="no-highlight">ctrl-X</div></code>, save and exit.
                             </p>
+
                             <p>
-                                If needed, uncomment the lines first. This will set the default path of the editor to
-                                <code class="html">http://hostname:1880/node-red/</code>
-                                allowing the Pi Car page to be visible from the root.
-                                The second setting tells node-red where to look for the web page assets.
-                                This becomes the root directory for any web pages served by http nodes.
+                                Now we need to copy the web asstets into the folder that was specified in the settings.
+                                Create the directories by running:
                             </p>
+
                             <p>
-                                Download the web assets here
+                                <pre><code class="shell"><div>mkdir /home/pi/.picar
+mkdir /home/pi/.picar/www</div></code></pre>
+                            </p>
+
+                            <p>
+                                Download the web assets here 
                                 <a href="../assets/picar-nodered-www.zip">picar-nodered-www.zip</a>.
-                                Unzip and copy with your client to
-                                <code class="no-highlight">/home/pi/.picar</code> Create the directory as needed.
+                                Unzip and copy the <code class="no-highlight">www</code> directory into
+                                <code class="no-highlight">/home/pi/.picar</code>
+                                with your ssh client. 
                             </p>
 
                             <p>
-                                To set up the flows for this project I have provided three flows to import: Authentication,
-                                Control, and Credentials. You can access Node-Red by opening a browser to the Pi's IP address
-                                on port 1880 in the node-red directory (
-                                <code class="html">http://ip_address/node-red</code>).
+                                Node-Red uses graphical "nodes" to layout a program which it will execute.
+                                By connecting these nodes different programs can be written without much actual code.
+                                These layouts are called workflows.
                             </p>
 
-                            <h4>Authentication</h4>
                             <p>
-                                Open the menu in the top left of the screen and select
+                                To set up the program for this project I have provided three flows to import: Web Server,
+                                Control, and Credentials. You can access Node-Red by opening a browser to the Pi's ip address
+                                on port 1880 in the node-red directory e.g. (
+                                <code class="html">http://ip_address:1880</code>).
+                            </p>
+
+                            <h4>Web Server</h4>
+                            <p>
+                                Open the menu in the top right of the screen and select
                                 <code class="no-highlight">Import &gt; Clipboard</code> Paste the following into a new flow.
+                                <div class="nodered-screen">
+                                    <img src="../img/import.png" />
+                                </div>
                             </p>
 
                             <div class="btn-group btn-group-code" role="group">
@@ -389,286 +411,292 @@
                                 <button id="copy-picar-auth-flow-code" type="button" class="btn btn-info">Copy Code</button>
                             </div>
                             <div id="picar-auth-flow" class="collapse hidden-code-block">
-                                <pre><code class="json auth-code"> 
-  [
-  {
-      "id": "acc22612.1a8258",
-      "type": "file in",
-      "z": "1fee60dc.191fff",
-      "name": "auth.html",
-      "filename": "/home/pi/.picar/www/auth.html",
-      "format": "utf8",
-      "sendError": true,
-      "x": 520,
-      "y": 80,
-      "wires": [
-          [
-              "aff0c571.204548"
-          ]
-      ]
-  },
-  {
-      "id": "9d08714e.9b236",
-      "type": "function",
-      "z": "1fee60dc.191fff",
-      "name": "Get Submitted",
-      "func": "var driver = msg.payload.driver.toLowerCase();\nvar key = msg.payload.key;\n\nmsg.driver = driver;\n\nvar keyObject = {};\nkeyObject[driver] = key;\n\nmsg.payload = JSON.stringify(keyObject);\nreturn msg;",
-      "outputs": 1,
-      "noerr": 0,
-      "x": 160,
-      "y": 100,
-      "wires": [
-          [
-              "32ae2dc5.59e942"
-          ]
-      ]
-  },
-  {
-      "id": "ab57849c.aa3bc8",
-      "type": "function",
-      "z": "1fee60dc.191fff",
-      "name": "Store Hash",
-      "func": "msg.key = msg.payload;\nreturn msg;",
-      "outputs": 1,
-      "noerr": 0,
-      "x": 150,
-      "y": 180,
-      "wires": [
-          [
-              "b8ae7304.33a36"
-          ]
-      ]
-  },
-  {
-      "id": "b8ae7304.33a36",
-      "type": "file in",
-      "z": "1fee60dc.191fff",
-      "name": "keys",
-      "filename": "/home/pi/.picar/www/keys",
-      "format": "utf8",
-      "sendError": true,
-      "x": 130,
-      "y": 220,
-      "wires": [
-          [
-              "812830b9.9fe19"
-          ]
-      ]
-  },
-  {
-      "id": "812830b9.9fe19",
-      "type": "json",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "x": 130,
-      "y": 260,
-      "wires": [
-          [
-              "b6755af4.76fc78"
-          ]
-      ]
-  },
-  {
-      "id": "b6755af4.76fc78",
-      "type": "function",
-      "z": "1fee60dc.191fff",
-      "name": "Validate",
-      "func": "var keyRing = msg.payload;\nvar driver = msg.driver.toLowerCase();\nvar key = msg.key;\n\nif (keyRing[driver] &amp;&amp; keyRing[driver] === key) {\n    keyobject = {};\n    keyobject[driver] = key;\n    msg.cookies = {\n        carkey: {\n            value: JSON.stringify(keyobject),\n            maxAge: 10*365*24*60*60*1000\n        }\n    }\n    msg.payload = 'succeeded';\n    return msg\n}\nmsg.payload = 'failed';\nreturn msg;",
-      "outputs": "1",
-      "noerr": 0,
-      "x": 140,
-      "y": 300,
-      "wires": [
-          [
-              "3b5b91b6.7d3a4e"
-          ]
-      ]
-  },
-  {
-      "id": "3b5b91b6.7d3a4e",
-      "type": "http response",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "x": 270,
-      "y": 300,
-      "wires": []
-  },
-  {
-      "id": "aff0c571.204548",
-      "type": "http response",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "x": 650,
-      "y": 80,
-      "wires": []
-  },
-  {
-      "id": "d82fa1aa.d92c7",
-      "type": "http in",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "url": "/picar",
-      "method": "get",
-      "upload": false,
-      "swaggerDoc": "",
-      "x": 360,
-      "y": 60,
-      "wires": [
-          [
-              "3bd7d0a7.acf3a"
-          ]
-      ]
-  },
-  {
-      "id": "a6603349.42ce1",
-      "type": "file in",
-      "z": "1fee60dc.191fff",
-      "name": "keys",
-      "filename": "/home/pi/.picar/www/keys",
-      "format": "utf8",
-      "sendError": true,
-      "x": 350,
-      "y": 140,
-      "wires": [
-          [
-              "92e3b880.587308"
-          ]
-      ]
-  },
-  {
-      "id": "92e3b880.587308",
-      "type": "json",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "x": 350,
-      "y": 180,
-      "wires": [
-          [
-              "4fa6a0c2.68daa"
-          ]
-      ]
-  },
-  {
-      "id": "4fa6a0c2.68daa",
-      "type": "function",
-      "z": "1fee60dc.191fff",
-      "name": "Validate",
-      "func": "var keyring = msg.payload;\nvar submitted = msg.submitted;\nvar driver = Object.keys(submitted)[0].toLowerCase();\n\nvar key = submitted[driver];\n\nif (keyring[driver] &amp;&amp; keyring[driver] === key) {\n    return [null, msg];\n}\n\nreturn [msg, null];\n",
-      "outputs": "2",
-      "noerr": 0,
-      "x": 360,
-      "y": 220,
-      "wires": [
-          [
-              "eba92dae.3e76e"
-          ],
-          [
-              "ea78a51.6065e58"
-          ]
-      ]
-  },
-  {
-      "id": "eba92dae.3e76e",
-      "type": "file in",
-      "z": "1fee60dc.191fff",
-      "name": "auth.html",
-      "filename": "/home/pi/.picar/www/auth.html",
-      "format": "utf8",
-      "sendError": true,
-      "x": 500,
-      "y": 200,
-      "wires": [
-          [
-              "7a0630ad.57f1d"
-          ]
-      ]
-  },
-  {
-      "id": "7a0630ad.57f1d",
-      "type": "http response",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "x": 630,
-      "y": 220,
-      "wires": []
-  },
-  {
-      "id": "ea78a51.6065e58",
-      "type": "file in",
-      "z": "1fee60dc.191fff",
-      "name": "main.html",
-      "filename": "/home/pi/.picar/www/main.html",
-      "format": "utf8",
-      "sendError": true,
-      "x": 500,
-      "y": 240,
-      "wires": [
-          [
-              "7a0630ad.57f1d"
-          ]
-      ]
-  },
-  {
-      "id": "2da48ba9.6645b4",
-      "type": "http in",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "url": "/picar",
-      "method": "post",
-      "upload": false,
-      "swaggerDoc": "",
-      "x": 150,
-      "y": 60,
-      "wires": [
-          [
-              "9d08714e.9b236"
-          ]
-      ]
-  },
-  {
-      "id": "3bd7d0a7.acf3a",
-      "type": "function",
-      "z": "1fee60dc.191fff",
-      "name": "Get Cookie",
-      "func": "var c = msg.req.cookies;\nif (c.carkey){\n    msg.payload = c.carkey;\n    msg.submitted = JSON.parse(c.carkey);\n    return [null, msg];\n}\nreturn [msg, null]",
-      "outputs": "2",
-      "noerr": 0,
-      "x": 370,
-      "y": 100,
-      "wires": [
-          [
-              "acc22612.1a8258"
-          ],
-          [
-              "a6603349.42ce1"
-          ]
-      ]
-  },
-  {
-      "id": "32ae2dc5.59e942",
-      "type": "hmac",
-      "z": "1fee60dc.191fff",
-      "name": "",
-      "algorithm": "HmacSHA512",
-      "key": "Enter-HMAC-Key-Here",
-      "x": 130,
-      "y": 140,
-      "wires": [
-          [
-              "ab57849c.aa3bc8"
-          ]
-      ]
-  }
-  ]</code></pre>
+                                <pre><code class="json auth-code">[
+{
+    "id": "acc22612.1a8258",
+    "type": "file in",
+    "z": "1fee60dc.191fff",
+    "name": "auth.html",
+    "filename": "/home/pi/.picar/www/auth.html",
+    "format": "utf8",
+    "sendError": true,
+    "x": 520,
+    "y": 80,
+    "wires": [
+        [
+            "aff0c571.204548"
+        ]
+    ]
+},
+{
+    "id": "9d08714e.9b236",
+    "type": "function",
+    "z": "1fee60dc.191fff",
+    "name": "Get Submitted",
+    "func": "var driver = msg.payload.driver.toLowerCase();\nvar key = msg.payload.key;\n\nmsg.driver = driver;\n\nvar keyObject = {};\nkeyObject[driver] = key;\n\nmsg.payload = JSON.stringify(keyObject);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 160,
+    "y": 100,
+    "wires": [
+        [
+            "32ae2dc5.59e942"
+        ]
+    ]
+},
+{
+    "id": "ab57849c.aa3bc8",
+    "type": "function",
+    "z": "1fee60dc.191fff",
+    "name": "Store Hash",
+    "func": "msg.key = msg.payload;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 150,
+    "y": 180,
+    "wires": [
+        [
+            "b8ae7304.33a36"
+        ]
+    ]
+},
+{
+    "id": "b8ae7304.33a36",
+    "type": "file in",
+    "z": "1fee60dc.191fff",
+    "name": "keys",
+    "filename": "/home/pi/.picar/www/keys",
+    "format": "utf8",
+    "sendError": true,
+    "x": 130,
+    "y": 220,
+    "wires": [
+        [
+            "812830b9.9fe19"
+        ]
+    ]
+},
+{
+    "id": "812830b9.9fe19",
+    "type": "json",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "x": 130,
+    "y": 260,
+    "wires": [
+        [
+            "b6755af4.76fc78"
+        ]
+    ]
+},
+{
+    "id": "b6755af4.76fc78",
+    "type": "function",
+    "z": "1fee60dc.191fff",
+    "name": "Validate",
+    "func": "var keyRing = msg.payload;\nvar driver = msg.driver.toLowerCase();\nvar key = msg.key;\n\nif (keyRing[driver] &amp;&amp; keyRing[driver] === key) {\n    keyobject = {};\n    keyobject[driver] = key;\n    msg.cookies = {\n        carkey: {\n            value: JSON.stringify(keyobject),\n            maxAge: 10*365*24*60*60*1000\n        }\n    }\n    msg.payload = 'succeeded';\n    return msg\n}\nmsg.payload = 'failed';\nreturn msg;",
+    "outputs": "1",
+    "noerr": 0,
+    "x": 140,
+    "y": 300,
+    "wires": [
+        [
+            "3b5b91b6.7d3a4e"
+        ]
+    ]
+},
+{
+    "id": "3b5b91b6.7d3a4e",
+    "type": "http response",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "x": 270,
+    "y": 300,
+    "wires": []
+},
+{
+    "id": "aff0c571.204548",
+    "type": "http response",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "x": 650,
+    "y": 80,
+    "wires": []
+},
+{
+    "id": "d82fa1aa.d92c7",
+    "type": "http in",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "url": "/picar",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 360,
+    "y": 60,
+    "wires": [
+        [
+            "3bd7d0a7.acf3a"
+        ]
+    ]
+},
+{
+    "id": "a6603349.42ce1",
+    "type": "file in",
+    "z": "1fee60dc.191fff",
+    "name": "keys",
+    "filename": "/home/pi/.picar/www/keys",
+    "format": "utf8",
+    "sendError": true,
+    "x": 350,
+    "y": 140,
+    "wires": [
+        [
+            "92e3b880.587308"
+        ]
+    ]
+},
+{
+    "id": "92e3b880.587308",
+    "type": "json",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "x": 350,
+    "y": 180,
+    "wires": [
+        [
+            "4fa6a0c2.68daa"
+        ]
+    ]
+},
+{
+    "id": "4fa6a0c2.68daa",
+    "type": "function",
+    "z": "1fee60dc.191fff",
+    "name": "Validate",
+    "func": "var keyring = msg.payload;\nvar submitted = msg.submitted;\nvar driver = Object.keys(submitted)[0].toLowerCase();\n\nvar key = submitted[driver];\n\nif (keyring[driver] &amp;&amp; keyring[driver] === key) {\n    return [null, msg];\n}\n\nreturn [msg, null];\n",
+    "outputs": "2",
+    "noerr": 0,
+    "x": 360,
+    "y": 220,
+    "wires": [
+        [
+            "eba92dae.3e76e"
+        ],
+        [
+            "ea78a51.6065e58"
+        ]
+    ]
+},
+{
+    "id": "eba92dae.3e76e",
+    "type": "file in",
+    "z": "1fee60dc.191fff",
+    "name": "auth.html",
+    "filename": "/home/pi/.picar/www/auth.html",
+    "format": "utf8",
+    "sendError": true,
+    "x": 500,
+    "y": 200,
+    "wires": [
+        [
+            "7a0630ad.57f1d"
+        ]
+    ]
+},
+{
+    "id": "7a0630ad.57f1d",
+    "type": "http response",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "x": 630,
+    "y": 220,
+    "wires": []
+},
+{
+    "id": "ea78a51.6065e58",
+    "type": "file in",
+    "z": "1fee60dc.191fff",
+    "name": "main.html",
+    "filename": "/home/pi/.picar/www/main.html",
+    "format": "utf8",
+    "sendError": true,
+    "x": 500,
+    "y": 240,
+    "wires": [
+        [
+            "7a0630ad.57f1d"
+        ]
+    ]
+},
+{
+    "id": "2da48ba9.6645b4",
+    "type": "http in",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "url": "/picar",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 150,
+    "y": 60,
+    "wires": [
+        [
+            "9d08714e.9b236"
+        ]
+    ]
+},
+{
+    "id": "3bd7d0a7.acf3a",
+    "type": "function",
+    "z": "1fee60dc.191fff",
+    "name": "Get Cookie",
+    "func": "var c = msg.req.cookies;\nif (c.carkey){\n    msg.payload = c.carkey;\n    msg.submitted = JSON.parse(c.carkey);\n    return [null, msg];\n}\nreturn [msg, null]",
+    "outputs": "2",
+    "noerr": 0,
+    "x": 370,
+    "y": 100,
+    "wires": [
+        [
+            "acc22612.1a8258"
+        ],
+        [
+            "a6603349.42ce1"
+        ]
+    ]
+},
+{
+    "id": "32ae2dc5.59e942",
+    "type": "hmac",
+    "z": "1fee60dc.191fff",
+    "name": "",
+    "algorithm": "HmacSHA512",
+    "key": "Enter-HMAC-Key-Here",
+    "x": 130,
+    "y": 140,
+    "wires": [
+        [
+            "ab57849c.aa3bc8"
+        ]
+    ]
+}
+]</div></code></pre>
                             </div>
                             <div class="nodered-screen">
-                                <img src="../img/flow-authentication.png" />
+                                <img src="../img/flow-Web.png" />
                             </div>
                             <p>
                                 Open the hmac node by double clicking it. Enter a secret key to encrypt passwords.
                                 This key should be the same as the one in the Credentials flow (more on that).
                             </p>
-
+                            
+                            <div class="nodered-screen">
+                                    <img src="../img/node-hmac.png" />
+                            </div>
+                            <div class="nodered-screen">
+                                <img src="../img/node-hmac-settings.png" />
+                            </div>
+                            
                             <h4>Control</h4>
                             <p>
                                 For the flow that will control the GPIOs, paste the following into a new flow.
@@ -680,139 +708,138 @@
                             </div>
 
                             <div id="picar-control-flow" class="collapse hidden-code-block">
-                                <pre><code class="json control-code">  
-  [
-  {
-      "id": "54124946.bfd8e8",
-      "type": "websocket in",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "server": "32f33346.bc3b9c",
-      "client": "",
-      "x": 130,
-      "y": 160,
-      "wires": [
-          [
-              "9ebd8f9d.38da"
-          ]
-      ]
-  },
-  {
-      "id": "9ebd8f9d.38da",
-      "type": "json",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "x": 290,
-      "y": 160,
-      "wires": [
-          [
-              "1bfe69cb.9c2b36"
-          ]
-      ]
-  },
-  {
-      "id": "1bfe69cb.9c2b36",
-      "type": "function",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "func": "var m = msg.payload;\n\nvar dmv = context.global.get('dmv')||{};\nvar license = m.License;\nvar now = (new Date()).getTime();\nif(dmv[license] + 300000 < now){\n    msg.payload = \"Connection Timeout\";\n    return [null, null, null, null, msg];\n}\n\nvar thrust = 'Idle';\nvar yaw = 'Straight';\n\nif(m.Forward == 1 &amp;&amp; m.Reverse == 1){\n    m.Forward = 0;\n    m.reverse = 0;\n}\nif(m.Left == 1 &amp;&amp; m.Right == 1){\n    m.Right = 0;\n    m.Left = 0;\n}\nif(m.Forward == 1){thrust = 'Forward';}\nif(m.Reverse == 1){thrust = 'Reverse';}\nif(m.Left == 1){yaw = 'Left';}\nif(m.Right == 1){yaw = 'Right';}\n\nvar text = thrust + ' ' + yaw;\n\nreturn [{payload: m.Forward},\n        {payload: m.Reverse},\n        {payload: m.Left},\n        {payload: m.Right},\n        {payload: text}];",
-      "outputs": "5",
-      "noerr": 0,
-      "x": 410,
-      "y": 160,
-      "wires": [
-          [
-              "41fb4523.00becc"
-          ],
-          [
-              "86393fb4.c8342"
-          ],
-          [
-              "5cb79342.dd7d1c"
-          ],
-          [
-              "e2b0e06c.1d6c"
-          ],
-          [
-              "f8b5c537.a5adb8"
-          ]
-      ]
-  },
-  {
-      "id": "f8b5c537.a5adb8",
-      "type": "websocket out",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "server": "32f33346.bc3b9c",
-      "client": "",
-      "x": 560,
-      "y": 280,
-      "wires": []
-  },
-  {
-      "id": "41fb4523.00becc",
-      "type": "rpi-gpio out",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "pin": "35",
-      "set": true,
-      "level": "0",
-      "freq": "",
-      "out": "out",
-      "x": 540,
-      "y": 40,
-      "wires": []
-  },
-  {
-      "id": "5cb79342.dd7d1c",
-      "type": "rpi-gpio out",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "pin": "38",
-      "set": true,
-      "level": "0",
-      "freq": "",
-      "out": "out",
-      "x": 560,
-      "y": 160,
-      "wires": []
-  },
-  {
-      "id": "86393fb4.c8342",
-      "type": "rpi-gpio out",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "pin": "37",
-      "set": true,
-      "level": "0",
-      "freq": "",
-      "out": "out",
-      "x": 580,
-      "y": 100,
-      "wires": []
-  },
-  {
-      "id": "e2b0e06c.1d6c",
-      "type": "rpi-gpio out",
-      "z": "8cc8cd00.37ee",
-      "name": "",
-      "pin": "36",
-      "set": true,
-      "level": "0",
-      "freq": "",
-      "out": "out",
-      "x": 580,
-      "y": 220,
-      "wires": []
-  },
-  {
-      "id": "32f33346.bc3b9c",
-      "type": "websocket-listener",
-      "z": "8cc8cd00.37ee",
-      "path": "/ws/picar",
-      "wholemsg": "false"
-  }
-  ]</code></pre>
+                                <pre><code class="json control-code">[
+{
+    "id": "df1c684d.9cb458",
+    "type": "websocket in",
+    "z": "ce96cab0.f0ae38",
+    "name": "",
+    "server": "ded96095.9ca83",
+    "client": "",
+    "x": 130,
+    "y": 160,
+    "wires": [
+        [
+            "b0e47c94.e6633"
+        ]
+    ]
+},
+{
+    "id": "b0e47c94.e6633",
+    "type": "json",
+    "z": "ce96cab0.f0ae38",
+    "name": "",
+    "x": 290,
+    "y": 160,
+    "wires": [
+        [
+            "c6623a05.7892f8"
+        ]
+    ]
+},
+{
+    "id": "c6623a05.7892f8",
+    "type": "function",
+    "z": "ce96cab0.f0ae38",
+    "name": "",
+    "func": "var m = msg.payload;\n\nvar dmv = context.global.get('dmv')||{};\nvar license = m.License;\nvar now = (new Date()).getTime();\nif(dmv[license] + 300000 < now){\n    msg.payload = \"Connection Timeout\";\n    return [null, null, null, null, msg];\n}\n\nvar thrust = 'Idle';\nvar yaw = 'Straight';\n\nif(m.Forward == 1 && m.Reverse == 1){\n    m.Forward = 0;\n    m.reverse = 0;\n}\nif(m.Left == 1 && m.Right == 1){\n    m.Right = 0;\n    m.Left = 0;\n}\nif(m.Forward == 1){thrust = 'Forward';}\nif(m.Reverse == 1){thrust = 'Reverse';}\nif(m.Left == 1){yaw = 'Left';}\nif(m.Right == 1){yaw = 'Right';}\n\nvar text = thrust + ' ' + yaw;\n\nreturn [{payload: m.Forward},\n        {payload: m.Reverse},\n        {payload: m.Left},\n        {payload: m.Right},\n        {payload: text}];",
+    "outputs": "5",
+    "noerr": 0,
+    "x": 410,
+    "y": 160,
+    "wires": [
+        [
+            "c7ca048b.847218"
+        ],
+        [
+            "eea3a4ae.fa6728"
+        ],
+        [
+            "5ae351ad.5a538"
+        ],
+        [
+            "575f8ccf.7c4274"
+        ],
+        [
+            "45ffa258.57e9cc"
+        ]
+    ]
+},
+{
+    "id": "45ffa258.57e9cc",
+    "type": "websocket out",
+    "z": "ce96cab0.f0ae38",
+    "name": "",
+    "server": "ded96095.9ca83",
+    "client": "",
+    "x": 560,
+    "y": 280,
+    "wires": []
+},
+{
+    "id": "c7ca048b.847218",
+    "type": "rpi-gpio out",
+    "z": "ce96cab0.f0ae38",
+    "name": "PIN: 35 - Forward",
+    "pin": "35",
+    "set": true,
+    "level": "0",
+    "freq": "",
+    "out": "out",
+    "x": 570,
+    "y": 40,
+    "wires": []
+},
+{
+    "id": "5ae351ad.5a538",
+    "type": "rpi-gpio out",
+    "z": "ce96cab0.f0ae38",
+    "name": "PIN: 38 - Left",
+    "pin": "38",
+    "set": true,
+    "level": "0",
+    "freq": "",
+    "out": "out",
+    "x": 570,
+    "y": 160,
+    "wires": []
+},
+{
+    "id": "eea3a4ae.fa6728",
+    "type": "rpi-gpio out",
+    "z": "ce96cab0.f0ae38",
+    "name": "PIN: 37 - Reverse",
+    "pin": "37",
+    "set": true,
+    "level": "0",
+    "freq": "",
+    "out": "out",
+    "x": 610,
+    "y": 100,
+    "wires": []
+},
+{
+    "id": "575f8ccf.7c4274",
+    "type": "rpi-gpio out",
+    "z": "ce96cab0.f0ae38",
+    "name": "PIN: 36 - Right",
+    "pin": "36",
+    "set": true,
+    "level": "0",
+    "freq": "",
+    "out": "out",
+    "x": 600,
+    "y": 220,
+    "wires": []
+},
+{
+    "id": "ded96095.9ca83",
+    "type": "websocket-listener",
+    "z": "ce96cab0.f0ae38",
+    "path": "/ws/picar",
+    "wholemsg": "false"
+}
+]</div></code></pre>
                             </div>
                             <div class="nodered-screen">
                                 <img src="../img/flow-control.png" />
@@ -835,195 +862,184 @@
                             </div>
 
                             <div id="picar-cred-flow" class="collapse hidden-code-block">
-                                <pre><code class="json cred-code">  
-  [
-  {
-      "id": "78b167b4.a9f548",
-      "type": "function",
-      "z": "e536286d.022a58",
-      "name": "Get Submitted",
-      "func": "msg.driver= msg.payload.driver;\nvar keyobject = {};\nkeyobject[msg.driver] = msg.payload.key;\nmsg.payload = JSON.stringify(keyobject);\nreturn msg;",
-      "outputs": 1,
-      "noerr": 0,
-      "x": 180,
-      "y": 100,
-      "wires": [
-          [
-              "16f254da.af2e9b"
-          ]
-      ]
-  },
-  {
-      "id": "abdf6535.c50fa8",
-      "type": "function",
-      "z": "e536286d.022a58",
-      "name": "Save Cred",
-      "func": "var driver = msg.driver;\nvar key = msg.key;\n\nvar keyring = msg.payload || {};\nkeyring[driver] = key;\n\nmsg.payload = JSON.stringify(keyring);\nreturn msg;",
-      "outputs": "1",
-      "noerr": 0,
-      "x": 170,
-      "y": 380,
-      "wires": [
-          [
-              "1c3a89fe.3c8ea6"
-          ]
-      ]
-  },
-  {
-      "id": "1c3a89fe.3c8ea6",
-      "type": "file",
-      "z": "e536286d.022a58",
-      "name": "Put keys",
-      "filename": "/home/pi/.picar/www/keys",
-      "appendNewline": true,
-      "createDir": false,
-      "overwriteFile": "true",
-      "x": 160,
-      "y": 420,
-      "wires": []
-  },
-  {
-      "id": "446b2f1.a7503d",
-      "type": "file in",
-      "z": "e536286d.022a58",
-      "name": "Get keys",
-      "filename": "/home/pi/.picar/www/keys",
-      "format": "utf8",
-      "sendError": true,
-      "x": 160,
-      "y": 300,
-      "wires": [
-          [
-              "b7a6615f.8451c"
-          ]
-      ]
-  },
-  {
-      "id": "b7a6615f.8451c",
-      "type": "json",
-      "z": "e536286d.022a58",
-      "name": "",
-      "x": 150,
-      "y": 340,
-      "wires": [
-          [
-              "abdf6535.c50fa8"
-          ]
-      ]
-  },
-  {
-      "id": "8506b8c2.b64d08",
-      "type": "inject",
-      "z": "e536286d.022a58",
-      "name": "New Driver",
-      "topic": "",
-      "payload": "{\"driver\":\"\",\"key\":\"\"}",
-      "payloadType": "json",
-      "repeat": "",
-      "crontab": "",
-      "once": false,
-      "x": 160,
-      "y": 60,
-      "wires": [
-          [
-              "78b167b4.a9f548"
-          ]
-      ]
-  },
-  {
-      "id": "d1f7af12.d2379",
-      "type": "function",
-      "z": "e536286d.022a58",
-      "name": "Get Cred",
-      "func": "msg.key = msg.payload;\nreturn msg;",
-      "outputs": 1,
-      "noerr": 0,
-      "x": 160,
-      "y": 180,
-      "wires": [
-          [
-              "b1af3d39.bc287"
-          ]
-      ]
-  },
-  {
-      "id": "b1af3d39.bc287",
-      "type": "file-exists",
-      "z": "e536286d.022a58",
-      "name": "Check keys",
-      "filename": "/home/pi/.picar/www/keys",
-      "x": 170,
-      "y": 220,
-      "wires": [
-          [
-              "4d81c141.92f8e"
-          ]
-      ]
-  },
-  {
-      "id": "4d81c141.92f8e",
-      "type": "function",
-      "z": "e536286d.022a58",
-      "name": "keys Exists",
-      "func": "if(!msg.payload){\n    return [{payload:'{}'}, null]\n}\nreturn [null, msg];",
-      "outputs": "2",
-      "noerr": 0,
-      "x": 170,
-      "y": 260,
-      "wires": [
-          [
-              "2acfe82d.167398"
-          ],
-          [
-              "446b2f1.a7503d"
-          ]
-      ]
-  },
-  {
-      "id": "2acfe82d.167398",
-      "type": "file",
-      "z": "e536286d.022a58",
-      "name": "Make keys",
-      "filename": "/home/pi/.picar/www/keys",
-      "appendNewline": true,
-      "createDir": false,
-      "overwriteFile": "false",
-      "x": 360,
-      "y": 260,
-      "wires": []
-  },
-  {
-      "id": "16f254da.af2e9b",
-      "type": "hmac",
-      "z": "e536286d.022a58",
-      "name": "",
-      "algorithm": "HmacSHA512",
-      "key": "The-same-secret-key-from-the-auth-flow",
-      "x": 150,
-      "y": 140,
-      "wires": [
-          [
-              "d1f7af12.d2379"
-          ]
-      ]
-  }
-  ]</code></pre>
+                                <pre><code class="json cred-code">[
+{
+    "id": "4f0d436a.ec82ac",
+    "type": "function",
+    "z": "c737272f.d855b8",
+    "name": "Get Submitted",
+    "func": "msg.driver= msg.payload.driver;\nvar keyobject = {};\nkeyobject[msg.driver] = msg.payload.key;\nmsg.payload = JSON.stringify(keyobject);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 160,
+    "y": 100,
+    "wires": [
+        [
+            "8c74f440.f638a8"
+        ]
+    ]
+},
+{
+    "id": "b33337a3.31d4d8",
+    "type": "function",
+    "z": "c737272f.d855b8",
+    "name": "Save Cred",
+    "func": "var driver = msg.driver;\nvar key = msg.key;\n\nvar keyring = msg.payload || {};\nkeyring[driver] = key;\n\nmsg.payload = JSON.stringify(keyring);\nreturn msg;",
+    "outputs": "1",
+    "noerr": 0,
+    "x": 410,
+    "y": 180,
+    "wires": [
+        [
+            "d07d1ae3.8f6b68"
+        ]
+    ]
+},
+{
+    "id": "d07d1ae3.8f6b68",
+    "type": "file",
+    "z": "c737272f.d855b8",
+    "name": "Put keys",
+    "filename": "/home/pi/.picar/www/keys",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "x": 400,
+    "y": 220,
+    "wires": []
+},
+{
+    "id": "be908f37.6b4ce",
+    "type": "file in",
+    "z": "c737272f.d855b8",
+    "name": "Get keys",
+    "filename": "/home/pi/.picar/www/keys",
+    "format": "utf8",
+    "sendError": true,
+    "x": 400,
+    "y": 100,
+    "wires": [
+        [
+            "d2df6932.934d08"
+        ]
+    ]
+},
+{
+    "id": "d2df6932.934d08",
+    "type": "json",
+    "z": "c737272f.d855b8",
+    "name": "",
+    "x": 390,
+    "y": 140,
+    "wires": [
+        [
+            "b33337a3.31d4d8"
+        ]
+    ]
+},
+{
+    "id": "8a376d0d.b18bf",
+    "type": "inject",
+    "z": "c737272f.d855b8",
+    "name": "New Driver",
+    "topic": "",
+    "payload": "{\"driver\":\"\", \"key\":\"\"}",
+    "payloadType": "json",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 140,
+    "y": 60,
+    "wires": [
+        [
+            "4f0d436a.ec82ac"
+        ]
+    ]
+},
+{
+    "id": "f0dd55f9.38ace8",
+    "type": "function",
+    "z": "c737272f.d855b8",
+    "name": "Get Cred",
+    "func": "msg.key = msg.payload;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 140,
+    "y": 180,
+    "wires": [
+        [
+            "c2927ec8.d2996"
+        ]
+    ]
+},
+{
+    "id": "c2927ec8.d2996",
+    "type": "function",
+    "z": "c737272f.d855b8",
+    "name": "keys Exists",
+    "func": "if(!msg.payload){\n    return [{payload:'{}'}, null]\n}\nreturn [null, msg];",
+    "outputs": "2",
+    "noerr": 0,
+    "x": 150,
+    "y": 220,
+    "wires": [
+        [
+            "761b678e.1e1158"
+        ],
+        [
+            "be908f37.6b4ce"
+        ]
+    ]
+},
+{
+    "id": "761b678e.1e1158",
+    "type": "file",
+    "z": "c737272f.d855b8",
+    "name": "Make keys",
+    "filename": "/home/pi/.picar/www/keys",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "false",
+    "x": 390,
+    "y": 60,
+    "wires": []
+},
+{
+    "id": "8c74f440.f638a8",
+    "type": "hmac",
+    "z": "c737272f.d855b8",
+    "name": "",
+    "algorithm": "HmacSHA512",
+    "key": "The-same-secret-key-from-the-webserver-flow",
+    "x": 130,
+    "y": 140,
+    "wires": [
+        [
+            "f0dd55f9.38ace8"
+        ]
+    ]
+}
+]</div></code></pre>
                             </div>
                             <div class="nodered-screen">
-                                <img src="../img/flow-credentials.png" />
+                                <img src="../img/flow-cred.png" />
                             </div>
                             <p>
                                 Again open the hmac node by double clicking it. Enter the same secret key you used in the
-                                Authentication flow.
+                                Web Server flow.
                             </p>
 
                             <p>
-                                To create a new driver from this screen edit the New Driver node by double clicking it.
-                                Edit the Payload with the desired credentials:
+                                To create a new driver from this screen open the New Driver node by double clicking it.
+                                Edit the payload with the desired credentials.
                             </p>
 
+                            <div class="nodered-screen">
+                                <img src="../img/node-new-driver.png" />
+                            </div>
+
                             <p>
-                                <pre><code class="shell">  {"driver":"[user name]", "key":"[password]"}</code></pre>
+                                <pre><code class="shell"><div>{"driver":"enter-user-name", "key":"enter-password"}</div></code></pre>
                             </p>
 
                             <p>
@@ -1031,7 +1047,7 @@
                                 <code class="no-highlight">Done</code>
                                 and then
                                 <code class="no-highlight">Deploy</code>.
-                                Once the flow is deployed click the box on the right of the New Driver node to inject the
+                                Once the flow is deployed click the box on the left of the New Driver node to inject the
                                 credentials. The username and a hash of the password will be added to the "keys" file. You
                                 can now log into the page with those credentials. Any additional times this is done adds
                                 a new user. If a username is reused it should update that user. To delete a user open the
@@ -1043,7 +1059,7 @@
                             <h4>View the results</h4>
                             <p>
                                 Point a browser to the root of the Pi's webserver on port 1880.
-                                <code class="html">http://ip_address:1880</code> .
+                                <code class="html">http://ip_address:1880/picar</code> .
                                 If everything has gone according to the plan the PiCar webpage should be visible.
                                 There will be no video for the webcam because that has not been setup.
                                 If the direction buttons are pressed the Pi should respond by updating the direction text.
@@ -1088,7 +1104,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  lsusb</code></pre>
+                                <pre><code class="shell"><div>lsusb</div></code></pre>
                             </p>
 
                             <p>
@@ -1098,7 +1114,7 @@
 
                             <p>
                                 First Install some of the dependencies of MJPG-Streamer.
-                                <pre><code class="shell">  sudo apt-get install libjpeg8-dev imagemagick libv4l-dev</code></pre>
+                                <pre><code class="shell"><div>sudo apt-get install libjpeg8-dev imagemagick libv4l-dev</div></code></pre>
                             </p>
 
                             <p>
@@ -1108,7 +1124,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h</code></pre>
+                                <pre><code class="shell"><div>sudo ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h</div></code></pre>
                             </p>
 
                             <h4>Download and Compile MJPG-Streamer</h4>
@@ -1129,7 +1145,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo apt-get install subversion</code></pre>
+                                <pre><code class="shell"><div>sudo apt-get install subversion</div></code></pre>
                             </p>
 
                             <p>
@@ -1138,9 +1154,9 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  cd ~
-  svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ mjpg-streamer
-  cd mjpg-streamer</code></pre>
+                                <pre><code class="shell"><div>cd ~
+svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ mjpg-streamer
+cd mjpg-streamer</div></code></pre>
                             </p>
 
                             <p>
@@ -1163,7 +1179,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  make mjpg_streamer input_file.so input_uvc.so output_http.so</code></pre>
+                                <pre><code class="shell"><div>make mjpg_streamer input_file.so input_uvc.so output_http.so</div></code></pre>
                             </p>
 
                             <p>
@@ -1182,9 +1198,9 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo cp mjpg_streamer /usr/local/bin
-  sudo cp output_http.so input_file.so input_uvc.so /usr/local/lib/
-  sudo cp -R www /usr/local/www</code></pre>
+                                <pre><code class="shell"><div>sudo cp mjpg_streamer /usr/local/bin
+sudo cp output_http.so input_file.so input_uvc.so /usr/local/lib/
+sudo cp -R www /usr/local/www</div></code></pre>
                             </p>
 
                             <p>
@@ -1205,7 +1221,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  export LD_LIBRARY_PATH=/usr/local/lib/</code></pre>
+                                <pre><code class="shell"><div>export LD_LIBRARY_PATH=/usr/local/lib/</div></code></pre>
                             </p>
 
                             <p>
@@ -1214,7 +1230,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  source ~/.bashrc</code></pre>
+                                <pre><code class="shell"><div>source ~/.bashrc</div></code></pre>
                             </p>
 
                             <p>
@@ -1229,10 +1245,10 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  cd mjpg-streamer-code/mjpg-streamer
-  patch -p0 &lt; input_uvc_patch.txt
-  make USE_LIBV4L2=true clean all
-  sudo make DESTDIR=/usr/local install</code></pre>
+                                <pre><code class="shell"><div>cd mjpg-streamer-code/mjpg-streamer
+patch -p0 &lt; input_uvc_patch.txt
+make USE_LIBV4L2=true clean all
+sudo make DESTDIR=/usr/local install</div></code></pre>
                             </p>
 
                             <h4>Using input_uvc.so to Capture Images</h4>
@@ -1241,7 +1257,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  /usr/local/bin/mjpg_streamer -i "/usr/local/lib/input_uvc.so" -o "/usr/local/lib/output_http.so -w /usr/local/www"</code></pre>
+                                <pre><code class="shell"><div>/usr/local/bin/mjpg_streamer -i "/usr/local/lib/input_uvc.so" -o "/usr/local/lib/output_http.so -w /usr/local/www"</div></code></pre>
                             </p>
 
                             <p>
@@ -1286,7 +1302,7 @@
                                 After running the command, you will see a line like:
                             </p>
                             <p>
-                                <pre><code class="shell">  forked to background (4979)</code></pre>
+                                <pre><code class="shell"><div>forked to background (4979)</div></code></pre>
                             </p>
 
                             <p>
@@ -1294,7 +1310,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  kill 4979</code></pre>
+                                <pre><code class="shell"><div>kill 4979</div></code></pre>
                             </p>
 
                             <p>
@@ -1325,8 +1341,8 @@
                                 That will be covered later. Now continue on to "Run MJPG-Streamer as a Daemon (Background Service)"
                             </p>
 
+                            <h4>Run MJPG-Streamer as a Daemon (Background Service)</h4>
                             <p>
-                                <h4>Run MJPG-Streamer as a Daemon (Background Service)</h4>
                                 Until now, we have just been launching MJPG-Streamer on an as-needed basis by running a
                                 command with our options. If you want to make this more permanent and have the Raspberry Pi
                                 start the Webcam stream when it boots up, we need to tell it to do so.
@@ -1338,18 +1354,18 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo service livestream.sh start
-  sudo service livestream.sh stop
-  sudo service livestream.sh restart</code></pre>
+                                <pre><code class="shell"><div>sudo service livestream.sh start
+sudo service livestream.sh stop
+sudo service livestream.sh restart</div></code></pre>
                             </p>
 
+                            <h5>Simple Script</h5>
                             <p>
-                                <h5>Simple Script</h5>
                                 A very simple script to do this is below:
                             </p>
 
                             <p>
-                                I have made some changes to the command from the original guide to optimize the camera for
+                                <b>* </b>I have made some changes to the command from the original guide to optimize the camera for
                                 the Pi Car.
                                 <ul>
                                     <li>
@@ -1367,7 +1383,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo nano /etc/init.d/livestream.sh</code></pre>
+                                <pre><code class="shell"><div>sudo nano /etc/init.d/livestream.sh</div></code></pre>
                             </p>
 
                             <p>
@@ -1375,8 +1391,8 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  #!/bin/bash
-  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"</code></pre>
+                                <pre><code class="shell"><div>#!/bin/bash
+usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"</div></code></pre>
                             </p>
 
                             <p>
@@ -1384,7 +1400,7 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo chmod 755 /etc/init.d/livestream.sh</code></pre>
+                                <pre><code class="shell"><div>sudo chmod 755 /etc/init.d/livestream.sh</div></code></pre>
                             </p>
 
                             <p>
@@ -1392,11 +1408,11 @@
                             </p>
 
                             <p>
-                                <pre><code class="shell">  sudo update-rc.d livestream.sh defaults</code></pre>
+                                <pre><code class="shell"><div>sudo update-rc.d livestream.sh defaults</div></code></pre>
                             </p>
 
+                            <h5>Advanced Script</h5>
                             <p>
-                                <h5>Advanced Script</h5>
                                 Below is a script that should load MJPG-Streamer at boot and allow use of the service command:
                             </p>
 
@@ -1406,79 +1422,79 @@
                             </div>
 
                             <div id="mpjg-streamer-init" class="collapse hidden-code-block">
-                                <pre><code class="bash mjpeg-streamer-code">  #!/bin/sh
-  # /etc/init.d/livestream.sh
-  ### BEGIN INIT INFO
-  # Provides:          livestream.sh
-  # Required-Start:    $network
-  # Required-Stop:     $network
-  # Default-Start:     2 3 4 5
-  # Default-Stop:      0 1 6
-  # Short-Description: mjpg_streamer for webcam
-  # Description:       Streams /dev/video0 to http://IP/?action=stream
-  ### END INIT INFO
-  f_message(){
-          echo "[+] $1"
-  }
- 
-  # Carry out specific functions when asked to by the system
-  case "$1" in
-          start)
-                  f_message "Starting mjpg_streamer"
-                  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"
-                  sleep 2
-                  f_message "mjpg_streamer started"
-                  ;;
-          stop)
-                  f_message "Stopping mjpg_streamer…"
-                  killall mjpg_streamer
-                  f_message "mjpg_streamer stopped"
-                  ;;
-          restart)
-                  f_message "Restarting daemon: mjpg_streamer"
-                  killall mjpg_streamer
-                  usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"
-                  sleep 2
-                  f_message "Restarted daemon: mjpg_streamer"
-                  ;;
-          status)
-                  pid=`ps -A | grep mjpg_streamer | grep -v "grep" | grep -v mjpg_streamer. | awk ‘{print $1}’ | head -n 1`
-                  if [ -n "$pid" ];
-                  then
-                          f_message "mjpg_streamer is running with pid ${pid}"
-                          f_message "mjpg_streamer was started with the following command line"
-                          cat /proc/${pid}/cmdline ; echo ""
-                  else
-                          f_message "Could not find mjpg_streamer running"
-                  fi
-                  ;;
-          *)
-                  f_message "Usage: $0 {start|stop|status|restart}"
-                  exit 1
-                  ;;
-  esac
-  exit 0</code></pre>
+                                <pre><code class="bash mjpeg-streamer-code"><div>#!/bin/sh
+# /etc/init.d/livestream.sh
+### BEGIN INIT INFO
+# Provides:          livestream.sh
+# Required-Start:    $network
+# Required-Stop:     $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: mjpg_streamer for webcam
+# Description:       Streams /dev/video0 to http://IP/?action=stream
+### END INIT INFO
+f_message(){
+        echo "[+] $1"
+}
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+        start)
+                f_message "Starting mjpg_streamer"
+                usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"
+                sleep 2
+                f_message "mjpg_streamer started"
+                ;;
+        stop)
+                f_message "Stopping mjpg_streamer…"
+                killall mjpg_streamer
+                f_message "mjpg_streamer stopped"
+                ;;
+        restart)
+                f_message "Restarting daemon: mjpg_streamer"
+                killall mjpg_streamer
+                usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"
+                sleep 2
+                f_message "Restarted daemon: mjpg_streamer"
+                ;;
+        status)
+                pid=`ps -A | grep mjpg_streamer | grep -v "grep" | grep -v mjpg_streamer. | awk ‘{print $1}’ | head -n 1`
+                if [ -n "$pid" ];
+                then
+                        f_message "mjpg_streamer is running with pid ${pid}"
+                        f_message "mjpg_streamer was started with the following command line"
+                        cat /proc/${pid}/cmdline ; echo ""
+                else
+                        f_message "Could not find mjpg_streamer running"
+                fi
+                ;;
+        *)
+                f_message "Usage: $0 {start|stop|status|restart}"
+                exit 1
+                ;;
+esac
+exit 0</div></code></pre>
                                 </div>
                                 <p><br />
                                     Once saved, run the same commands as above:
                                 </p>
 
                                 <p>
-                                    <pre><code class="shell">  sudo chmod 755 /etc/init.d/livestream.sh
-  sudo update-rc.d livestream.sh defaults</code></pre>
+                                    <pre><code class="shell"><div>sudo chmod 755 /etc/init.d/livestream.sh
+sudo update-rc.d livestream.sh defaults</div></code></pre>
                                 </p>
 
                                 <p>
                                     <h3>Success!</h3>
                                 </p>
 
-                                <h4>Integrating Mjpg-Stream into the Pi Car</h4>
+                                <h4>Veiwing Mjpg-Stream on the Pi Car</h4>
                                 <p>
                                     Now if you go to the Pi Car webserver address
-                                    <code class="no-highlight">http://ip_address:1880/</code>
+                                    <code class="no-highlight">http://ip_address:1880/picar</code>
                                     You should see the video.
-                                    Sometimes Mjpg-Streamer will not start if there is no camera connected;
-                                    to ensure video works, connect the camera before booting the Pi.
+                                    Sometimes Mjpg-Streamer will not start if there is no camera connected.
+                                    To ensure video works, connect the camera before booting the Pi.
                                 </p>
                                 <hr>
                             </div>
@@ -1517,7 +1533,7 @@
                                 </ul>
                             </p>
                             <p>
-                                These pins should be the same across most cars.
+                                These pins are the same across most cars.
                             </p>
 
                             <p>
@@ -1594,9 +1610,9 @@
                             </p>
                             <p>
                                 Go to the Pi's web page
-                                <code class="html">http://ip_address:1880</code> and test the controls.
+                                <code class="html">http://ip_address:1880/picar</div></code> and test the controls.
                                 If there is no response check the flow at
-                                <code class="html">http://ip_address:1880/node-red</code>
+                                <code class="html">http://ip_address:1880</div></code>
                                 If every thing works, celebrate.
                             </p>
 
