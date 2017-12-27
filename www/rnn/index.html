@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110974761-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110974761-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Jackson 2012</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/bootstrap-player.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/rnn.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container nav-container-override">
+      <div>
+        <a class="navbar-brand js-scroll-trigger" href="/">Jackson 2012</a>
+        <i class="bullet">&bull;</i>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Recurrent Neural Networks</a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#comedy">Comedy Routine</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">RNN</h1>
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+            <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <a class="js-scroll-trigger" href="#comedy">
+                    <img src="../img/rowan-atkinson.png" class="img-fluid" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="comedy bg-primary text-center" id="comedy">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">A Comedy Routine</h2>
+          <h4>Or why computer's won't steal any comedian's job.</h4>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <p>
+                This is a comedy routine built with recurrent nuural networks using
+                <a href="https://github.com/karpathy/char-rnn">Andrej Karpathy's implementation</a> of torch-rnn. I have input comedy routines from some of the biggest
+                names of the decade. And the output is an strange jumble of jokes that don't make sense. There are a few
+                funny ones though.
+              </p>
+              <p>
+                The raw text can be found
+                <a href="../assets/rnn-text-01.txt">here</a>.
+              </p>
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <audio controls>
+              <source src="../assets/rnn-text-01.mp3" type="audio/mpeg" />
+              <a href="../assets/rnn-text-01.mp3">rnn-01</a>
+            </audio>
+          </div> 
+        </div> 
+
+        
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+          <div class="row">
+              <div class="col-md-8 mx-auto">
+              <h5>Comedians that were used</h5>
+              <div class="row">
+                <div class="col-lg-6 col-xs-12 mx-auto text-left">
+                  <ul>
+                    <li>AL MADRIGAL</li>
+                    <li>ALI WONG</li>
+                    <li>AMY SCHUMER</li>
+                    <li>AMY SCHUMER</li>
+                    <li>ANTHONY JESELNIK</li>
+                    <li>AZIZ ANSARI</li>
+                    <li>BIG JAY OAKERSON</li>
+                    <li>BILL MAHER</li>
+                    <li>CHRIS GETHARD</li>
+                    <li>CHRIS ROCK</li>
+                    <li>CHRISTINA PAZSITZKY</li>
+                    <li>CRISTELA ALONZO</li>
+                    <li>DANIEL TOSH</li>
+                    <li>DAVE CHAPPELLE</li>
+                    <li>DONALD GLOVER</li>
+                    <li>DOUG STANHOPE</li>
+                    <li>DYLAN MORAN</li>
+                    <li>EDDIE GRIFFIN</li>
+                    <li>ERIK GRIFFIN</li>
+                    <li>FRANKIE BOYLE</li>
+                    <li>GABRIEL IGLESIAS</li>
+                    <li>HANNIBAL BURESS</li>
+                    <li>HASAN MINHAJ</li>
+                    <li>JACK WHITEHALL</li>
+                    <li>JEN KIRKMAN</li>
+                    <li>JIM GAFFIGAN</li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 col-xs-12  mx-auto text-left">
+                  <ul>
+                    <li>JIM JEFFERIES</li>
+                    <li>JIM NORTON</li>
+                    <li>JOE ROGAN</li>
+                    <li>JOHN MULANEY</li>
+                    <li>JUDAH FRIEDLANDER</li>
+                    <li>KEVIN HART</li>
+                    <li>LEWIS BLACK</li>
+                    <li>LISA LAMPANELLI</li>
+                    <li>MARC MARON</li>
+                    <li>MARIA BAMFORD</li>
+                    <li>MICHAEL CHE</li>
+                    <li>MIKE BIRBIGLIA</li>
+                    <li>NEAL BRENNAN</li>
+                    <li>NICK OFFERMAN</li>
+                    <li>PABLO FRANCISCO</li>
+                    <li>PATRICE O’NEAL</li>
+                    <li>PATTON OSWALT</li>
+                    <li>RICKY GERVAIS</li>
+                    <li>RORY SCOVEL</li>
+                    <li>RUSSELL BRAND</li>
+                    <li>RUSSELL HOWARD</li>
+                    <li>SARAH SILVERMAN</li>
+                    <li>TOM SEGURA</li>
+                    <li>TREVOR NOAH</li>
+                    <li>WANDA SYKES</li>
+                  </ul>
+                </div>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2017 Jackson 2012. All Rights Reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <!--<a href="#">Privacy</a>-->
+        </li>
+        <li class="list-inline-item">
+          <!--<a href="#">Terms</a>-->
+        </li>
+        <li class="list-inline-item">
+          <!--<a href="#">FAQ</a>-->
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <script src="../js/bootstrap-player.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/jackson2012.js"></script>
+
+</body>
+
+</html>
