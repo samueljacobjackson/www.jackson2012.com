@@ -111,6 +111,10 @@ section .hidden-code-block {
     padding-top: 20px;
 }
 @media (min-width: 768px) {
+  /*  section.guide .nodered-screen {
+        width: 100%;
+    }
+    */
     section.guide .nodered-screen > img,
     section.guide .chip-shot > img  {
         display: initial;

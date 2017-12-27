@@ -31,6 +31,7 @@
 
     <!-- Code formmating scripts -->
     <link rel="stylesheet" href="../css/highlight.pack.css">
+    <link rel="stylesheet" href="../css/styles/tomorrow-night-bright.css">
     <script src="../js/highlight.pack.js"></script>
 
     <!-- Custom styles for this template -->
@@ -249,7 +250,7 @@
 
                             <h4>Set up WiFi</h4>
                             <p>
-                                <p>To edit the supplicant file and enter your WiFi credentials, run:</p>
+                                To edit the supplicant file and enter your WiFi credentials, run:
                             </p>
 
                             <p>    
@@ -269,7 +270,7 @@
 
                             <p>
                                 Press
-                                <code class="no-highlight">ctrl-X</code>, save and exit.
+                                <code class="nohighlight">ctrl-X</code>, save and exit.
                             </p>
 
                             <h4>Enable SSH</h4>
@@ -343,6 +344,14 @@ sudo apt-get upgrade</div></code></pre>
                             </p>
 
                             <p>
+                                To create the settings file for Node-Red it needs to be started once. Run:
+                            </p>
+
+                            <p>
+                                <pre><code class="shell"><div>sudo systemctl start nodered</div></code></pre>
+                            </p>
+
+                            <p>
                                 We need to tell Node-Red where to look for the web page assets.
                                 This will become the root directory for any web pages served by http nodes.
                                 Run:
@@ -354,16 +363,16 @@ sudo apt-get upgrade</div></code></pre>
 
                             <p>
                                 And change the line:<br />
-                                <code class="shell"><div>//httpStatic: '/home/nol/node-red-static/',</code>
+                                <code class="shell">//httpStatic: '/home/nol/node-red-static/',</code>
                                 <br/>
                                 to:
                                 <br />
-                                <code class="shell"><div>httpStatic: '/home/pi/.picar/www/,</code>
+                                <code class="shell">httpStatic: '/home/pi/.picar/www/,</code>
                             </p>
 
                             <p>
                                 Press
-                                <code class="no-highlight">ctrl-X</div></code>, save and exit.
+                                <code class="nohighlight">ctrl-X</code>, save and exit.
                             </p>
 
                             <p>
@@ -379,9 +388,17 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             <p>
                                 Download the web assets here 
                                 <a href="../assets/picar-nodered-www.zip">picar-nodered-www.zip</a>.
-                                Unzip and copy the <code class="no-highlight">www</code> directory into
-                                <code class="no-highlight">/home/pi/.picar</code>
+                                Unzip and copy the <code class="nohighlight">www</code> directory into
+                                <code class="nohighlight">/home/pi/.picar</code>
                                 with your ssh client. 
+                            </p>
+
+                            <p>
+                                Restart Node-Red:
+                            </p>
+
+                            <p>
+                                <pre><code class="bash"><div>sudo systemctl restart nodered</div></code></pre>
                             </p>
 
                             <p>
@@ -400,7 +417,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             <h4>Web Server</h4>
                             <p>
                                 Open the menu in the top right of the screen and select
-                                <code class="no-highlight">Import &gt; Clipboard</code> Paste the following into a new flow.
+                                <code class="nohighlight">Import &gt; Clipboard</code> Paste the following into a new flow.
                                 <div class="nodered-screen">
                                     <img src="../img/import.png" />
                                 </div>
@@ -411,7 +428,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                                 <button id="copy-picar-auth-flow-code" type="button" class="btn btn-info">Copy Code</button>
                             </div>
                             <div id="picar-auth-flow" class="collapse hidden-code-block">
-                                <pre><code class="json auth-code">[
+                                <pre><code class="json auth-code"><div>[
 {
     "id": "acc22612.1a8258",
     "type": "file in",
@@ -691,12 +708,13 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </p>
                             
                             <div class="nodered-screen">
-                                    <img src="../img/node-hmac.png" />
+                                <img src="../img/node-hmac.png" />
                             </div>
+
                             <div class="nodered-screen">
                                 <img src="../img/node-hmac-settings.png" />
                             </div>
-                            
+
                             <h4>Control</h4>
                             <p>
                                 For the flow that will control the GPIOs, paste the following into a new flow.
@@ -708,7 +726,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </div>
 
                             <div id="picar-control-flow" class="collapse hidden-code-block">
-                                <pre><code class="json control-code">[
+                                <pre><code class="json control-code"><div>[
 {
     "id": "df1c684d.9cb458",
     "type": "websocket in",
@@ -862,7 +880,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </div>
 
                             <div id="picar-cred-flow" class="collapse hidden-code-block">
-                                <pre><code class="json cred-code">[
+                                <pre><code class="json cred-code"><div>[
 {
     "id": "4f0d436a.ec82ac",
     "type": "function",
@@ -1037,22 +1055,22 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             <div class="nodered-screen">
                                 <img src="../img/node-new-driver.png" />
                             </div>
-
+                            
                             <p>
-                                <pre><code class="shell"><div>{"driver":"enter-user-name", "key":"enter-password"}</div></code></pre>
+                                <pre><code class="json"><div>{"driver":"enter-user-name", "key":"enter-password"}</div></code></pre>
                             </p>
 
                             <p>
                                 Click
-                                <code class="no-highlight">Done</code>
+                                <code class="nohighlight">Done</code>
                                 and then
-                                <code class="no-highlight">Deploy</code>.
+                                <code class="nohighlight">Deploy</code>.
                                 Once the flow is deployed click the box on the left of the New Driver node to inject the
                                 credentials. The username and a hash of the password will be added to the "keys" file. You
                                 can now log into the page with those credentials. Any additional times this is done adds
                                 a new user. If a username is reused it should update that user. To delete a user open the
                                 "keys" file in
-                                <code class="no-highlight">/home/pi/.picar/www/</code>
+                                <code class="nohighlight">/home/pi/.picar/www/</code>
                                 and delete that entry. I hope to come up with a better solution for that in the future.
                             </p>
 
@@ -1204,7 +1222,7 @@ sudo cp -R www /usr/local/www</div></code></pre>
                             </p>
 
                             <p>
-                                <code class="no-highlight">/usr/local/</code>
+                                <code class="nohighlight">/usr/local/</code>
                                 is a common place for third-party items or things added to a system by an admin.
                                 But you could put them wherever you like, or just leave it where it is.
                                 You will just need to modify the paths for the rest of the walkthrough.
@@ -1391,7 +1409,7 @@ sudo service livestream.sh restart</div></code></pre>
                             </p>
 
                             <p>
-                                <pre><code class="shell"><div>#!/bin/bash
+                                <pre><code class="bash"><div>#!/bin/bash
 usr/local/bin/mjpg_streamer -b -i "/usr/local/lib/input_uvc.so -y -r 320x240 -fps 15 -q 50" -o "/usr/local/lib/output_http.so -w /usr/local/www"</div></code></pre>
                             </p>
 
@@ -1491,7 +1509,7 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
                                 <h4>Veiwing Mjpg-Stream on the Pi Car</h4>
                                 <p>
                                     Now if you go to the Pi Car webserver address
-                                    <code class="no-highlight">http://ip_address:1880/picar</code>
+                                    <code class="nohighlight">http://ip_address:1880/picar</code>
                                     You should see the video.
                                     Sometimes Mjpg-Streamer will not start if there is no camera connected.
                                     To ensure video works, connect the camera before booting the Pi.
