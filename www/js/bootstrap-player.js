@@ -9,15 +9,15 @@
         $(player_box).addClass($(song).attr('class') + ' well container-fluid playa');
 
         var data_sec = document.createElement('section');
-        $(data_sec).addClass('collapsing center-block row col-sm-12');
+        $(data_sec).addClass('collapsing center-block col-sm-12');
 
         var toggle_holder = document.createElement('div');
-        $(toggle_holder).addClass('btn-group center-block row col-sm-12');
+        $(toggle_holder).addClass('btn-group center-block col-lg-12');
 
         var data_toggle = document.createElement('button');
         $(data_toggle).attr('type','button');
         $(data_toggle).html('<i class="fa fa-align-justify" style="top:-3px"></i>');
-        $(data_toggle).addClass('btn btn-default btn-lg btn-block row col-sm-12');
+        $(data_toggle).addClass('btn btn-default btn-lg btn-block col-sm-12');
         $(data_toggle).attr('style', 'opacity:0.3');
         $(data_toggle).click(function () {$(data_sec).collapse('toggle'); });
         $(data_toggle).attr('title', 'Details');
@@ -27,8 +27,13 @@
         var data_table = document.createElement('table');
         $(data_table).addClass('table table-condensed');
 
-        var player = document.createElement('section');
-        $(player).addClass('btn-group  center-block row  col-sm-12');
+        var player_outside = document.createElement('section');
+        $(player).addClass('btn-group  center-block col-sm-12');
+
+        var player = document.createElement('div');
+        $(player).addClass('col-sm-12 mx-auto');
+
+        $(player_outside).append(player);
 
         var load_error = function () {
             // console.log('error');
@@ -43,7 +48,7 @@
         var addPlay = function () {
             var play = document.createElement('button');
             $(play).attr('type','button');
-            $(play).addClass('btn  btn-default disabled col-sm-1');
+            $(play).addClass('btn  btn-default disabled btn-player btn-first');
 
             play.setPlayState = function (toggle) {
                 $(play).removeClass('disabled');
@@ -164,7 +169,7 @@
             };
 
             var seek_wrapper = document.createElement('div');
-            $(seek_wrapper).addClass('btn btn-default col-sm-4 hidden-xs');
+            $(seek_wrapper).addClass('btn btn-default btn-slider col-sm-4 hidden-xs');
             $(seek_wrapper).append(seek);
 
             // bind seek / position slider events
@@ -188,7 +193,7 @@
         var addTime = function () {
             var time = document.createElement('button');
             $(time).attr('type','button');
-            $(time).addClass('btn btn-default col-sm-3');
+            $(time).addClass('btn btn-default btn-time col-sm-3');
             $(time).tooltip({'container': 'body', 'placement': 'right', 'html': true});
 
             time.twodigit = function (myNum) {
@@ -246,7 +251,7 @@
         var addMute = function () {
             var mute = document.createElement('button');
             $(mute).attr('type','button');
-            $(mute).addClass('btn btn-default  col-sm-1');
+            $(mute).addClass('btn btn-default btn-player btn-second-last');
 
             mute.checkVolume = function () {
                 if (song.volume > 0.5 && !song.muted) {
@@ -295,7 +300,7 @@
             };
 
             var vol_wrapper = document.createElement('div');
-            $(vol_wrapper).addClass('btn  btn-default  row col-sm-3  hidden-xs');
+            $(vol_wrapper).addClass('btn  btn-default btn-slider btn-last col-sm-3  hidden-xs');
             $(vol_wrapper).append(volume);
             $(volume).on('change', volume.slide);
             $(song).on('volumechange', volume.set);
@@ -366,7 +371,7 @@
             if ($(song).data('volume') !== 'off') {
                 addVolume();
             }
-            $(player_box).append(player);
+            $(player_box).append(player_outside);
         }; // addPlayer
 
         var addAttribution = function () {

@@ -45,14 +45,24 @@ section {
     padding: 75px 0;
 }
 .well {
-    background-color: #fdbd1c;
-    border: transparent;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 .well section {
     padding: 0 15px 0 15px;
 }
 .well input {
     max-width: 100%;
+}
+@media (max-width: 768px){
+    .hidden-xs {
+        display: none!important;
+    }
+    .col-sm-12 {
+        width: 100%;
+    }
 }
 section h2 {
     font-size: 50px;
@@ -185,6 +195,9 @@ header.masthead .header-content {
 header.masthead .header-content h1 {
     font-size: 30px;
 }
+header.masthead .header-content a{
+    color: #fdcc52;
+}
 header.masthead .device-container {
     max-width: 325px;
     margin-right: auto;
@@ -219,33 +232,36 @@ header.masthead .device-container .screen img {
         width: 100%;
     }
 }
-section.hack {
+section.comedy {
     position: relative;
     padding: 75px 0;
 }
-section.hack h2 {
+section.comedy h2 {
     font-size: 50px;
     margin-top: 0;
 }
-section.hack .badges .badge-link {
+section.comedy .comedians ul>li{
+    font-size: 14px;
+}
+section.comedy .badges .badge-link {
     display: block;
     margin-bottom: 25px;
 }
-section.hack .badges .badge-link:last-child {
+section.comedy .badges .badge-link:last-child {
     margin-bottom: 0;
 }
-section.hack .badges .badge-link img {
+section.comedy .badges .badge-link img {
     height: 128px;
     padding-bottom: 30px
 }
 @media (min-width: 768px) {
-    section.hack .badges .badge-link {
+    section.comedy .badges .badge-link {
         display: inline-block;
         margin-bottom: 0;
     }
 }
 @media (min-width: 768px) {
-    section.hack h2 {
+    section.comedy h2 {
         font-size: 70px;
     }
 }
@@ -297,14 +313,13 @@ footer ul li a.active {
     border-color: #fdcc52;
     background-color: #fdcc52;
 }
-/*
 .btn {
     border-radius: 300px;
     font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-*/
+
 .btn-default {
     color: #333;
     background-color: #fff;
@@ -313,4 +328,32 @@ footer ul li a.active {
 .btn-xl {
     font-size: 11px;
     padding: 15px 45px;
+}
+.btn-player {
+    width: 40px;
+    border-radius: 3px;
+}
+.btn-slider {
+    width: initial;
+    max-width: 100%;
+    border-radius: 0;
+}
+.btn-time {
+    width: initial;
+    max-width: 100%;
+    border-radius: 0;
+}
+.btn-first {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.btn-last {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+@media (max-width: 768px){
+    .btn-second-last{
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
 }
