@@ -6,7 +6,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110974761-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-110974761-1');
@@ -17,7 +17,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Jackson 2012</title>
+    <title>Jackson 2012 - PiCar</title>
+
+    <link rel=”canonical” href=”http://www.jackson2012.com/picar/” />
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -85,10 +87,10 @@
 
                         <h1 class="mb-5">Raspi Car</h1>
                         <p>
-                            This is a project to make an internet controlled car from an old RC car and a Raspberry Pi.
-                            It consists of a web server running on a Raspberry Pi Zero W, a webcam, and an old RC car.
-                            The components may be purchased for about $50.00 making this an affordable and fun project.
-                            Some soldering is required so you will need a soldering iron.
+                            This is a project to make an internet controlled car from an old RC car and a Raspberry Pi. It consists of a web server running
+                            on a Raspberry Pi Zero W, a webcam, and an old RC car. The components may be purchased for about
+                            $50.00 making this an affordable and fun project. Some soldering is required so you will need
+                            a soldering iron.
                         </p>
 
                         <h4>Jump To:</h4>
@@ -138,13 +140,13 @@
                                         <u>A Raspberry Pi Zero W</u>
                                         <br /> &emsp; A Raspberry Pi Zero W is a small single board computer made by the Raspbery
                                         Pi Foundation. For more information visit
-                                        <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a> .
-                                        It is perfect because of it's small size and built in Wifi.
+                                        <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a> . It is perfect because of it's small size and built
+                                        in Wifi.
                                     </li>
                                     <li>
                                         <u>Micro SD Card</u>
-                                        <br/> &emsp; The Raspberry Pi will need one on which to install the OS.
-                                        An 8GB or even a 4GB SD card for th OS is sufficient for this project.
+                                        <br/> &emsp; The Raspberry Pi will need one on which to install the OS. An 8GB or even
+                                        a 4GB SD card for th OS is sufficient for this project.
                                     </li>
                                     <li>
                                         <u>USB Web Cam</u>
@@ -153,8 +155,8 @@
                                     </li>
                                     <li>
                                         <u>OTG micro USB-to-USB</u>
-                                        <br/> &emsp; The Raspberry Pi USB input is a micro type so you will needed this to
-                                        connect the camera to the Pi.
+                                        <br/> &emsp; The Raspberry Pi USB input is a micro type so you will needed this to connect
+                                        the camera to the Pi.
                                     </li>
                                     <li>
                                         <u>RC Car</u>
@@ -167,15 +169,15 @@
                                         feeling ambitious you could hobble together a car from working parts. If you are
                                         unable to find one with a battery you will need to purchase one which will increase
                                         the cost. When buying a car note the voltage required. Some cars use standard double
-                                        A batteries and only run on 6 volts. Those will be difficult to use. For this guide I 
-                                        will use a 9.6 volt battery.
+                                        A batteries and only run on 6 volts. Those will be difficult to use. For this guide
+                                        I will use a 9.6 volt battery.
                                     </li>
                                     <li>
                                         <u>NiCad Battery</u>
-                                        <br /> &emsp; If you are unable to find an RC car with one you will need to get a seperate battery.
-                                        You may decide in the future to get a higher capacity battery for more run time.
-                                        A custom battery from Battery giant is what I used.
-                                        A custom battery needs to have the Tamiya style connectors.
+                                        <br /> &emsp; If you are unable to find an RC car with one you will need to get a seperate
+                                        battery. You may decide in the future to get a higher capacity battery for more run
+                                        time. A custom battery from Battery giant is what I used. A custom battery needs
+                                        to have the Tamiya style connectors.
                                     </li>
                                     <li>
                                         <u>A USB Charging Adapter.</u>
@@ -192,15 +194,14 @@
                                     </li>
                                     <li>
                                         <u>Tamiya Big Style Connector Plugs</u>
-                                        <br /> &emsp; Unwired. Connecter that RC car batteries use.
-                                        If you get a custom battery make sure they use this style connector.
-                                        Additional ones will be used to connect the car charger to the battery.
+                                        <br /> &emsp; Unwired. Connecter that RC car batteries use. If you get a custom battery
+                                        make sure they use this style connector. Additional ones will be used to connect
+                                        the car charger to the battery.
                                     </li>
                                     <li>
                                         <u>Mini HDMI Adapter or Cable</u>
-                                        <br /> &emsp; The Raspberry Pi Zero uses a mini HDMI port.
-                                        This will only be used in the intial stages of setup, 
-                                        leaving the adapter available for other projects.
+                                        <br /> &emsp; The Raspberry Pi Zero uses a mini HDMI port. This will only be used in the
+                                        intial stages of setup, leaving the adapter available for other projects.
                                     </li>
                                 </ul>
                             </p>
@@ -229,22 +230,20 @@
                             <h4>Download Raspbian</h4>
                             <p>
                                 You can get this image via direct download or torrent
-                                <a href="https://www.raspberrypi.org/downloads/raspbian/">here</a>.
-                                The regular version comes with a graphical user interface and will occupy more disk space.
-                                Get the lite version because there will be no need for the user interface.
-                                Every thing in this guide can be done with the command line interface.
+                                <a href="https://www.raspberrypi.org/downloads/raspbian/">here</a>. The regular version comes with a graphical user interface and will occupy more
+                                disk space. Get the lite version because there will be no need for the user interface. Every
+                                thing in this guide can be done with the command line interface.
                             </p>
-                            
+
                             <h4>Download Win32 Disk Imager</h4>
                             <p>
                                 The executable may be found
-                                <a href="https://sourceforge.net/projects/win32diskimager/">here</a>. 
-                                Extract the .img file from your Raspbian download and run the disk imager.
-                                Select the file you extracted and your SD Card. Click <b>Write</b> to install the OS.
-                                After that is done it is time to boot the Pi. Insert the SD card and connect it to a TV or monitor
-                                via HDMI. Connect a keybord then provide power. After it boots, login with the default user
-                                name "pi" and password "raspberry". Before anything we need to get the device onto the WiFi.
-                                (For a more detailed guide check
+                                <a href="https://sourceforge.net/projects/win32diskimager/">here</a>. Extract the .img file from your Raspbian download and run the disk imager. Select
+                                the file you extracted and your SD Card. Click
+                                <b>Write</b> to install the OS. After that is done it is time to boot the Pi. Insert the SD
+                                card and connect it to a TV or monitor via HDMI. Connect a keybord then provide power. After
+                                it boots, login with the default user name "pi" and password "raspberry". Before anything
+                                we need to get the device onto the WiFi. (For a more detailed guide check
                                 <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">here</a>.)
                             </p>
 
@@ -253,7 +252,7 @@
                                 To edit the supplicant file and enter your WiFi credentials, run:
                             </p>
 
-                            <p>    
+                            <p>
                                 <pre><code class="shell"><div>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></code></pre>
                             </p>
 
@@ -284,29 +283,27 @@ sudo systemctl start ssh</div></code></pre>
 
                             <p>
                                 Reboot by running
-                            <p>
-                                
-                            <p>
-                                <pre><code class="shell"><div>sudo reboot</div></code></pre>
-                            </p>
+                                <p>
 
-                            <p>
-                                Once it has rebooted login and type
-                            </p>
-                                
-                            </p>
+                                    <p>
+                                        <pre><code class="shell"><div>sudo reboot</div></code></pre>
+                                    </p>
+
+                                    <p>
+                                        Once it has rebooted login and type
+                                    </p>
+
+                                </p>
                                 <pre><code class="shell"><div>ifconfig</div></code></pre>
                             </p>
 
                             <p>
-                                Note the IP address. If there is not ip address listed then check the file for WiFi.
-                                The Pi may now be disconnected from the TV/monitor and keyboard;
-                                they are no longer needed. Further interfacing with the Pi can be done remotely with
-                                an SSH client.
+                                Note the IP address. If there is not ip address listed then check the file for WiFi. The Pi may now be disconnected from
+                                the TV/monitor and keyboard; they are no longer needed. Further interfacing with the Pi can
+                                be done remotely with an SSH client.
                                 <a href="https://winscp.net/eng/download.php">WinSCP</a> or
                                 <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>
-                                will work. Select your favorite and log into the IP address from before with the default
-                                username and password.
+                                will work. Select your favorite and log into the IP address from before with the default username and password.
                             </p>
 
                             <p>
@@ -352,9 +349,8 @@ sudo apt-get upgrade</div></code></pre>
                             </p>
 
                             <p>
-                                We need to tell Node-Red where to look for the web page assets.
-                                This will become the root directory for any web pages served by http nodes.
-                                Run:
+                                We need to tell Node-Red where to look for the web page assets. This will become the root directory for any web pages served
+                                by http nodes. Run:
                             </p>
 
                             <p>
@@ -362,10 +358,10 @@ sudo apt-get upgrade</div></code></pre>
                             </p>
 
                             <p>
-                                And change the line:<br />
+                                And change the line:
+                                <br />
                                 <code class="shell">//httpStatic: '/home/nol/node-red-static/',</code>
-                                <br/>
-                                to:
+                                <br/> to:
                                 <br />
                                 <code class="shell">httpStatic: '/home/pi/.picar/www/,</code>
                             </p>
@@ -376,8 +372,7 @@ sudo apt-get upgrade</div></code></pre>
                             </p>
 
                             <p>
-                                Now we need to copy the web asstets into the folder that was specified in the settings.
-                                Create the directories by running:
+                                Now we need to copy the web asstets into the folder that was specified in the settings. Create the directories by running:
                             </p>
 
                             <p>
@@ -386,11 +381,10 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </p>
 
                             <p>
-                                Download the web assets here 
-                                <a href="../assets/picar-nodered-www.zip">picar-nodered-www.zip</a>.
-                                Unzip and copy the <code class="nohighlight">www</code> directory into
-                                <code class="nohighlight">/home/pi/.picar</code>
-                                with your ssh client. 
+                                Download the web assets here
+                                <a href="../assets/picar-nodered-www.zip">picar-nodered-www.zip</a>. Unzip and copy the
+                                <code class="nohighlight">www</code> directory into
+                                <code class="nohighlight">/home/pi/.picar</code> with your ssh client.
                             </p>
 
                             <p>
@@ -402,15 +396,14 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </p>
 
                             <p>
-                                Node-Red uses graphical "nodes" to layout a program which it will execute.
-                                By connecting these nodes different programs can be written without much actual code.
-                                These layouts are called workflows.
+                                Node-Red uses graphical "nodes" to layout a program which it will execute. By connecting these nodes different programs can
+                                be written without much actual code. These layouts are called workflows.
                             </p>
 
                             <p>
-                                To set up the program for this project I have provided three flows to import: Web Server,
-                                Control, and Credentials. You can access Node-Red by opening a browser to the Pi's ip address
-                                on port 1880 in the node-red directory e.g. (
+                                To set up the program for this project I have provided three flows to import: Web Server, Control, and Credentials. You can
+                                access Node-Red by opening a browser to the Pi's ip address on port 1880 in the node-red
+                                directory e.g. (
                                 <code class="html">http://ip_address:1880</code>).
                             </p>
 
@@ -703,10 +696,10 @@ mkdir /home/pi/.picar/www</div></code></pre>
                                 <img src="../img/flow-Web.png" />
                             </div>
                             <p>
-                                Open the hmac node by double clicking it. Enter a secret key to encrypt passwords.
-                                This key should be the same as the one in the Credentials flow (more on that).
+                                Open the hmac node by double clicking it. Enter a secret key to encrypt passwords. This key should be the same as the one
+                                in the Credentials flow (more on that).
                             </p>
-                            
+
                             <div class="nodered-screen">
                                 <img src="../img/node-hmac.png" />
                             </div>
@@ -719,7 +712,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             <p>
                                 For the flow that will control the GPIOs, paste the following into a new flow.
                             </p>
-    
+
                             <div class="btn-group btn-group-code" role="group">
                                 <button id="show-picar-control-flow-code" type="button" class="btn btn-info" data-toggle="collapse" data-target="#picar-control-flow">Show Code</button>
                                 <button id="copy-picar-control-flow-code" type="button" class="btn btn-info">Copy Code</button>
@@ -863,17 +856,16 @@ mkdir /home/pi/.picar/www</div></code></pre>
                                 <img src="../img/flow-Control.png" />
                             </div>
                             <p>
-                                Note the pins use for controling the car.
-                                Top to bottom they are: 35-forward, 37-reverse, 38-left, 36-right.
-                                Use these pins when connecting the Pi to the RC car receiver (more on that).
+                                Note the pins use for controling the car. Top to bottom they are: 35-forward, 37-reverse, 38-left, 36-right. Use these pins
+                                when connecting the Pi to the RC car receiver (more on that).
                             </p>
 
                             <h4>Credentials</h4>
                             <p>
-                                Paste the following into a new flow. This flow will allow the creation of username &amp;
-                                password combinations with the secret key.
+                                Paste the following into a new flow. This flow will allow the creation of username &amp; password combinations with the secret
+                                key.
                             </p>
-    
+
                             <div class="btn-group btn-group-code" role="group">
                                 <button id="show-picar-cred-flow-code" type="button" class="btn btn-info" data-toggle="collapse" data-target="#picar-cred-flow">Show Code</button>
                                 <button id="copy-picar-cred-flow-code" type="button" class="btn btn-info">Copy Code</button>
@@ -1043,13 +1035,12 @@ mkdir /home/pi/.picar/www</div></code></pre>
                                 <img src="../img/flow-Cred.png" />
                             </div>
                             <p>
-                                Again open the hmac node by double clicking it. Enter the same secret key you used in the
-                                Web Server flow.
+                                Again open the hmac node by double clicking it. Enter the same secret key you used in the Web Server flow.
                             </p>
 
                             <p>
-                                To create a new driver from this screen open the New Driver node by double clicking it.
-                                Edit the payload with the desired credentials.
+                                To create a new driver from this screen open the New Driver node by double clicking it. Edit the payload with the desired
+                                credentials.
                             </p>
 
                             <div class="nodered-screen">
@@ -1062,25 +1053,21 @@ mkdir /home/pi/.picar/www</div></code></pre>
 
                             <p>
                                 Click
-                                <code class="nohighlight">Done</code>
-                                and then
-                                <code class="nohighlight">Deploy</code>.
-                                Once the flow is deployed click the box on the left of the New Driver node to inject the
+                                <code class="nohighlight">Done</code> and then
+                                <code class="nohighlight">Deploy</code>. Once the flow is deployed click the box on the left of the New Driver node to inject the
                                 credentials. The username and a hash of the password will be added to the "keys" file. You
                                 can now log into the page with those credentials. Any additional times this is done adds
                                 a new user. If a username is reused it should update that user. To delete a user open the
                                 "keys" file in
-                                <code class="nohighlight">/home/pi/.picar/www/</code>
-                                and delete that entry. I hope to come up with a better solution for that in the future.
+                                <code class="nohighlight">/home/pi/.picar/www/</code> and delete that entry. I hope to come up with a better solution for that in the future.
                             </p>
 
                             <h4>View the results</h4>
                             <p>
                                 Point a browser to the root of the Pi's webserver on port 1880.
-                                <code class="html">http://ip_address:1880/picar</code> .
-                                If everything has gone according to the plan the PiCar webpage should be visible.
-                                There will be no video for the webcam because that has not been setup.
-                                If the direction buttons are pressed the Pi should respond by updating the direction text.
+                                <code class="html">http://ip_address:1880/picar</code> . If everything has gone according to the plan the PiCar webpage should be visible. There
+                                will be no video for the webcam because that has not been setup. If the direction buttons
+                                are pressed the Pi should respond by updating the direction text.
                             </p>
                             <hr>
                         </div>
@@ -1111,9 +1098,9 @@ mkdir /home/pi/.picar/www</div></code></pre>
 
                             <h4>Two Methods: Camera Module or USB Webcam</h4>
                             <p>
-                                You can use the Raspberry Pi camera module, or any compatible USB Webcam.
-                                I found that that the USB Webcam method is easier  and better quality,
-                                but there are instructions for both. In the walkthrough, I’ll be using a USB Webcam.
+                                You can use the Raspberry Pi camera module, or any compatible USB Webcam. I found that that the USB Webcam method is easier
+                                and better quality, but there are instructions for both. In the walkthrough, I’ll be using
+                                a USB Webcam.
                             </p>
 
                             <h4>Check If the Pi Recognizes the Webcam</h4>
@@ -1126,8 +1113,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </p>
 
                             <p>
-                                Look for an entry relating to your Webcam.
-                                This is a good indicator it has been recognized.
+                                Look for an entry relating to your Webcam. This is a good indicator it has been recognized.
                             </p>
 
                             <p>
@@ -1136,8 +1122,7 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </p>
 
                             <p>
-                                An adjustment needs to be made: the videodev.h file has been replaced with videodev2.h
-                                but this change needs to be made manually.
+                                An adjustment needs to be made: the videodev.h file has been replaced with videodev2.h but this change needs to be made manually.
                                 To do this, just create a symbolic link.
                             </p>
 
@@ -1147,14 +1132,13 @@ mkdir /home/pi/.picar/www</div></code></pre>
 
                             <h4>Download and Compile MJPG-Streamer</h4>
                             <p>
-                                Unfortunately, MJPG-Streamer isn’t available via apt-get, so we need to compile it from source.
-                                This may be more complex than setting up a Webcam using Motion, but I found MJPG-Streamer to be
-                                less resource-intensive so the additional complexity of setting it up is worth it.
+                                Unfortunately, MJPG-Streamer isn’t available via apt-get, so we need to compile it from source. This may be more complex
+                                than setting up a Webcam using Motion, but I found MJPG-Streamer to be less resource-intensive
+                                so the additional complexity of setting it up is worth it.
                             </p>
 
                             <p>
-                                There are a few different ways to install MJPG-Streamer.
-                                The easiest is via subversion, which is what I will walkthrough.
+                                There are a few different ways to install MJPG-Streamer. The easiest is via subversion, which is what I will walkthrough.
                             </p>
 
                             <h4>Download via Subversion (svn)</h4>
@@ -1167,8 +1151,8 @@ mkdir /home/pi/.picar/www</div></code></pre>
                             </p>
 
                             <p>
-                                Then, download a copy of the MJPG-Streamer source code to your home folder and move into the
-                                directory when the download is complete:
+                                Then, download a copy of the MJPG-Streamer source code to your home folder and move into the directory when the download
+                                is complete:
                             </p>
 
                             <p>
@@ -1178,17 +1162,18 @@ cd mjpg-streamer</div></code></pre>
                             </p>
 
                             <p>
-                                There are a lot of plugins included with MJPG-Stream, but for this walkthrough,
-                                we will just compile three. If you only plan to use a USB Webcam,
-                                you can modify the command below to suit your needs. Just leave off the items you do not want.
+                                There are a lot of plugins included with MJPG-Stream, but for this walkthrough, we will just compile three. If you only plan
+                                to use a USB Webcam, you can modify the command below to suit your needs. Just leave off
+                                the items you do not want.
                                 <ul>
                                     <li>
-                                        <b>input_uvc.so (for USB Webcams):</b> copies JPGs from a single input (the Webcam in this
-                                        case) to one or more output plugins. This is good for streaming larger images at a higher
-                                        framerate with lower CPU usage.
+                                        <b>input_uvc.so (for USB Webcams):</b> copies JPGs from a single input (the Webcam in
+                                        this case) to one or more output plugins. This is good for streaming larger images
+                                        at a higher framerate with lower CPU usage.
                                     </li>
                                     <li>
-                                        <b>input_file.so (for camera module):</b> similar to the above, but copies them from a directory.
+                                        <b>input_file.so (for camera module):</b> similar to the above, but copies them from
+                                        a directory.
                                     </li>
                                     <li>
                                         <b>output_http.so:</b> streams the files to a Webserver.
@@ -1201,14 +1186,14 @@ cd mjpg-streamer</div></code></pre>
                             </p>
 
                             <p>
-                                Alternatively, running make, you can compile everything that comes with MJPG-Streamer.
-                                I chose to just install what was necessary to save on storage space and resources.
+                                Alternatively, running make, you can compile everything that comes with MJPG-Streamer. I chose to just install what was necessary
+                                to save on storage space and resources.
                             </p>
 
                             <h4>Move MJPG-Streamer to an Alternate Location.</h4>
                             <p>
-                                You could run MJPG-Streamer right from the folder after it is compiled (./mjpg_streamer),
-                                but it might be better to give it a permanent home.
+                                You could run MJPG-Streamer right from the folder after it is compiled (./mjpg_streamer), but it might be better to give
+                                it a permanent home.
                             </p>
 
                             <p>
@@ -1222,20 +1207,19 @@ sudo cp -R www /usr/local/www</div></code></pre>
                             </p>
 
                             <p>
-                                <code class="nohighlight">/usr/local/</code>
-                                is a common place for third-party items or things added to a system by an admin.
-                                But you could put them wherever you like, or just leave it where it is.
-                                You will just need to modify the paths for the rest of the walkthrough.
+                                <code class="nohighlight">/usr/local/</code> is a common place for third-party items or things added to a system by an admin. But you
+                                could put them wherever you like, or just leave it where it is. You will just need to modify
+                                the paths for the rest of the walkthrough.
                             </p>
 
                             <h4>Export Paths</h4>
                             <p>
-                                If you did try to run Mjpg-Streamer now, it probably returned an error about search paths.
-                                This is because right now, the system doesn’t know where to find the files. This is an easy fix.
-                                Just append the following line to <code class="shell">~/.bashrc</code>
-                                (assuming you ran the commands above to copy the files
-                                to <code class="shell">/usr/local/</code> .
-                                This will make it a permanent change so that you don’t need to do this every time you log in:
+                                If you did try to run Mjpg-Streamer now, it probably returned an error about search paths. This is because right now, the
+                                system doesn’t know where to find the files. This is an easy fix. Just append the following
+                                line to
+                                <code class="shell">~/.bashrc</code> (assuming you ran the commands above to copy the files to
+                                <code class="shell">/usr/local/</code> . This will make it a permanent change so that you don’t need to do this every time you
+                                log in:
                             </p>
 
                             <p>
@@ -1243,8 +1227,8 @@ sudo cp -R www /usr/local/www</div></code></pre>
                             </p>
 
                             <p>
-                                Now you can either log out and back in again, but it is easier to run the source command to apply
-                                the change (this has the same effect as logging in):
+                                Now you can either log out and back in again, but it is easier to run the source command to apply the change (this has the
+                                same effect as logging in):
                             </p>
 
                             <p>
@@ -1252,8 +1236,7 @@ sudo cp -R www /usr/local/www</div></code></pre>
                             </p>
 
                             <p>
-                                Now, you can simply call Mjpg-Streamer no matter what directory you are in.
-                                We are almost ready to start capturing images.
+                                Now, you can simply call Mjpg-Streamer no matter what directory you are in. We are almost ready to start capturing images.
                             </p>
 
                             <h4>Install A Patch</h4>
@@ -1293,8 +1276,7 @@ sudo make DESTDIR=/usr/local install</div></code></pre>
                                 </ul>
                             </p>
                             <p>
-                                You can cancel the stream by pressing Ctrl+C. If you want to experiment with some other options, 
-                                some are listed below:
+                                You can cancel the stream by pressing Ctrl+C. If you want to experiment with some other options, some are listed below:
                                 <ul>
                                     <li>
                                         -b: runs in the background.
@@ -1315,9 +1297,8 @@ sudo make DESTDIR=/usr/local install</div></code></pre>
                             </p>
 
                             <p>
-                                If you used the -b option, you will get your prompt back.
-                                So how do you stop it from running?
-                                After running the command, you will see a line like:
+                                If you used the -b option, you will get your prompt back. So how do you stop it from running? After running the command,
+                                you will see a line like:
                             </p>
                             <p>
                                 <pre><code class="shell"><div>forked to background (4979)</div></code></pre>
@@ -1340,9 +1321,9 @@ sudo make DESTDIR=/usr/local install</div></code></pre>
                                 <b>(while connected to your local network)</b>
                             </p>
                             <p>
-                                Even if you have already set up a Webserver, you can still run this without problem because
-                                it is accessed on a different (default) port: 8080. So when you navigate to it in a browser,
-                                just append :8080 after the IP address:
+                                Even if you have already set up a Webserver, you can still run this without problem because it is accessed on a different
+                                (default) port: 8080. So when you navigate to it in a browser, just append :8080 after the
+                                IP address:
 
                                 <ul>
                                     <li>
@@ -1355,20 +1336,20 @@ sudo make DESTDIR=/usr/local install</div></code></pre>
                             </p>
 
                             <p>
-                                I will be skipping the section "Accessing Your Pi Over the Internet" from the original guide.
-                                That will be covered later. Now continue on to "Run MJPG-Streamer as a Daemon (Background Service)"
+                                I will be skipping the section "Accessing Your Pi Over the Internet" from the original guide. That will be covered later.
+                                Now continue on to "Run MJPG-Streamer as a Daemon (Background Service)"
                             </p>
 
                             <h4>Run MJPG-Streamer as a Daemon (Background Service)</h4>
                             <p>
-                                Until now, we have just been launching MJPG-Streamer on an as-needed basis by running a
-                                command with our options. If you want to make this more permanent and have the Raspberry Pi
-                                start the Webcam stream when it boots up, we need to tell it to do so.
+                                Until now, we have just been launching MJPG-Streamer on an as-needed basis by running a command with our options. If you
+                                want to make this more permanent and have the Raspberry Pi start the Webcam stream when it
+                                boots up, we need to tell it to do so.
                             </p>
 
                             <p>
-                                There are two scripts below: a very basic one that just runs the command,
-                                and an advanced script that will allow you to use the service command to control it:
+                                There are two scripts below: a very basic one that just runs the command, and an advanced script that will allow you to use
+                                the service command to control it:
                             </p>
 
                             <p>
@@ -1383,16 +1364,15 @@ sudo service livestream.sh restart</div></code></pre>
                             </p>
 
                             <p>
-                                <b>* </b>I have made some changes to the command from the original guide to optimize the camera for
-                                the Pi Car.
+                                <b>* </b>I have made some changes to the command from the original guide to optimize the camera
+                                for the Pi Car.
                                 <ul>
                                     <li>
-                                        -r 320x240: set the resolution. This lower resolution is faster and good enough for
-                                        smaller screens like iPhones and Android devices
+                                        -r 320x240: set the resolution. This lower resolution is faster and good enough for smaller screens like iPhones and Android
+                                        devices
                                     </li>
                                     <li>
-                                        -fps 15: sets the frame rate to 15 frames per second. That keeps the stream fast enough
-                                        to see where the car is going.
+                                        -fps 15: sets the frame rate to 15 frames per second. That keeps the stream fast enough to see where the car is going.
                                     </li>
                                     <li>
                                         -q 50: Lowers the image quality for a faster feed. 50 is fast and an acceptable quality.
@@ -1492,34 +1472,32 @@ case "$1" in
                 ;;
 esac
 exit 0</div></code></pre>
-                                </div>
-                                <p><br />
-                                    Once saved, run the same commands as above:
-                                </p>
-
-                                <p>
-                                    <pre><code class="shell"><div>sudo chmod 755 /etc/init.d/livestream.sh
-sudo update-rc.d livestream.sh defaults</div></code></pre>
-                                </p>
-
-                                <p>
-                                    <h3>Success!</h3>
-                                </p>
-
-                                <h4>Viewing Mjpg-Stream on the Pi Car</h4>
-                                <p>
-                                    Now if you go to the Pi Car webserver address
-                                    <code class="nohighlight">http://ip_address:1880/picar</code>
-                                    You should see the video.
-                                    Sometimes Mjpg-Streamer will not start if there is no camera connected.
-                                    To ensure video works, connect the camera before booting the Pi.
-                                </p>
-                                <hr>
                             </div>
+                            <p>
+                                <br /> Once saved, run the same commands as above:
+                            </p>
+
+                            <p>
+                                <pre><code class="shell"><div>sudo chmod 755 /etc/init.d/livestream.sh
+sudo update-rc.d livestream.sh defaults</div></code></pre>
+                            </p>
+
+                            <p>
+                                <h3>Success!</h3>
+                            </p>
+
+                            <h4>Viewing Mjpg-Stream on the Pi Car</h4>
+                            <p>
+                                Now if you go to the Pi Car webserver address
+                                <code class="nohighlight">http://ip_address:1880/picar</code> You should see the video. Sometimes Mjpg-Streamer will not start if there is no camera connected.
+                                To ensure video works, connect the camera before booting the Pi.
+                            </p>
+                            <hr>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <section class="guide" id="four">
@@ -1534,15 +1512,13 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
                     </div>
                     <div class="row">
                         <div class="col-md-12 guide  mx-auto">
-                            
+
                             <h4>Open Car Up</h4>
                             <p>
-                                Remove the car cover and expose the receiver board.
-                                On that board there is a chip, it should be the only or largest chip. 
+                                Remove the car cover and expose the receiver board. On that board there is a chip, it should be the only or largest chip.
                                 Here is a data sheet for a transmitter and receiver that is common to all RC cars.
                                 <a href="../assets/RX2_TX2_Datasheet.pdf">RX2_TX2_Datasheet.pdf</a>
-                                On page 5 the second chart lists the pins for RX2.
-                                Note the pin numbers.
+                                On page 5 the second chart lists the pins for RX2. Note the pin numbers.
                                 <ul>
                                     <li>Pin 6 (Right)</li>
                                     <li>Pin 7 (Left)</li>
@@ -1557,20 +1533,22 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
                             <p>
                                 There are two types of chips you may find.
                                 <ul>
-                                    <li><b>Surface mount</b>
-                                        <br />&emsp;More and more cars are using surface mount chips.
-                                        These make things a little harder to solder as the connectors are very small.
-                                        In this case you may want to leave the chip on and just solder to the appropiate leg.
-                                        Leaving the chip on shouldn't matter.
+                                    <li>
+                                        <b>Surface mount</b>
+                                        <br />&emsp;More and more cars are using surface mount chips. These make things a little
+                                        harder to solder as the connectors are very small. In this case you may want to leave
+                                        the chip on and just solder to the appropiate leg. Leaving the chip on shouldn't
+                                        matter.
                                         <div class="chip-shot">
                                             <img src="../img/rx2-sm.png" />
                                         </div>
                                     </li>
                                     <br/>
-                                    <li><b>Through Hole</b>
-                                        <br />&emsp;Older cars and cheaper cars will have larger through hole chips.
-                                        It is sometimes easier to remove the chip and solder directly to the board.
-                                        In this case use the male end of a jumper wire to go through the hole.
+                                    <li>
+                                        <b>Through Hole</b>
+                                        <br />&emsp;Older cars and cheaper cars will have larger through hole chips. It is sometimes
+                                        easier to remove the chip and solder directly to the board. In this case use the
+                                        male end of a jumper wire to go through the hole.
                                         <div class="chip-shot">
                                             <img src="../img/rx2-th.png" />
                                         </div>
@@ -1578,46 +1556,43 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
                                 </ul>
                             </p>
                             <p>
-                                Solder four jumper wires at least 5 inches long to the four direction pins.
-                                Some cars have the chip face down so try to color code your wires for easy reference.
-                                Solder one more wire to the ground pin of the chip. I prefer a black wire for ground.
+                                Solder four jumper wires at least 5 inches long to the four direction pins. Some cars have the chip face down so try to color
+                                code your wires for easy reference. Solder one more wire to the ground pin of the chip. I
+                                prefer a black wire for ground.
                             </p>
 
                             <h4>Connect the Battery</h4>
                             <p>
-                                Also on the board there should be wires to the battery.
-                                Cut cut those wires as far from the board as you can.
-                                If the battery was connected via a pcb mount battery holder,
-                                solder some wires at least 6 inches from the board to those.
+                                Also on the board there should be wires to the battery. Cut cut those wires as far from the board as you can. If the battery
+                                was connected via a pcb mount battery holder, solder some wires at least 6 inches from the
+                                board to those.
                             </p>
 
                             <p>
-                                Open the USB car charger and expose the circuits within.
-                                Solder two wires to the positive and ground  connections at least 6 inches from the board.
+                                Open the USB car charger and expose the circuits within. Solder two wires to the positive and ground connections at least
+                                6 inches from the board.
                             </p>
 
                             <p>
-                                With the ends of the power wires from both the receiver and the USB charger,
-                                crimp them into a Tamiya connector together, positive with positive and ground with ground.
-                                Use a female connector so it can connected to the battery.
+                                With the ends of the power wires from both the receiver and the USB charger, crimp them into a Tamiya connector together,
+                                positive with positive and ground with ground. Use a female connector so it can connected
+                                to the battery.
                             </p>
 
                             <h4>Test the Receiver</h4>
                             <p>
-                                Connect your battery to your new connector. Make sure the battery is charged,
-                                and if the car has one, the power switch is in the on position.
-                                Connect the ground pin or wire to the ground of the power.
-                                Apply 5 volts to the wires or pins you have on the receiver.
-                                Set the car up on a block before forward or backward.
-                                If the car responds correctly, congratulations you have not bought a dud.
-                                If not, check your soldering.
+                                Connect your battery to your new connector. Make sure the battery is charged, and if the car has one, the power switch is
+                                in the on position. Connect the ground pin or wire to the ground of the power. Apply 5 volts
+                                to the wires or pins you have on the receiver. Set the car up on a block before forward or
+                                backward. If the car responds correctly, congratulations you have not bought a dud. If not,
+                                check your soldering.
                             </p>
 
                             <h4>Connect the Raspberry Pi</h4>
                             <p>
-                                Plug the web cam into the Pi and either attach the Pi to external power or the battery.
-                                Connect the female end of the jumper to the pins that correspond to Node-Red.
-                                Connect the ground pin from the receiver to the ground pin on the Raspberry Pi.
+                                Plug the web cam into the Pi and either attach the Pi to external power or the battery. Connect the female end of the jumper
+                                to the pins that correspond to Node-Red. Connect the ground pin from the receiver to the
+                                ground pin on the Raspberry Pi.
                                 <ul>
                                     <li>35 - Forward</li>
                                     <li>37 - Reverse</li>
@@ -1628,10 +1603,8 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
                             </p>
                             <p>
                                 Go to the Pi's web page
-                                <code class="html">http://ip_address:1880/picar</div></code> and test the controls.
-                                If there is no response check the flow at
-                                <code class="html">http://ip_address:1880</div></code>
-                                If every thing works, celebrate.
+                                <code class="html">http://ip_address:1880/picar</div></code> and test the controls. If there is no response check the flow at
+                                <code class="html">http://ip_address:1880</div></code> If every thing works, celebrate.
                             </p>
 
                             <h4>Button it Up</h4>
@@ -1647,7 +1620,38 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
         </div>
     </section>
 
+    <section class="" id="comments">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div id="disqus_thread"></div>
+                    <script>
 
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+                        var disqus_config = function () {
+                            this.page.url = 'http://www.jackson2012.com/picar/';  // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = 'jackson2012/picar'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+
+
+                        (function () { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://www-jackson2012-com.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the
+                        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                    </noscript>
+
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <p>&copy; 2017 Jackson 2012. All Rights Reserved.</p>
@@ -1676,6 +1680,7 @@ sudo update-rc.d livestream.sh defaults</div></code></pre>
     <script src="../js/jackson2012.js"></script>
     <script src="js/picar.js"></script>
 
+    <script id="dsq-count-scr" src="//www-jackson2012-com.disqus.com/count.js" async></script>
 </body>
 
 </html>

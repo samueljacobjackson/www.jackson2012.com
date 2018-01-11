@@ -17,7 +17,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Jackson 2012</title>
+  <title>Jackson 2012 - RNN</title>
+
+  <link rel=”canonical” href=”http://www.jackson2012.com/rnn/” />
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -67,10 +69,10 @@
           <div class="header-content mx-auto">
             <h1 class="mb-5">Artificial Intelligence, Deep Learning, and NLP</h1>
             <p>
-              Recurrent Neural Networks (RNNs) are popular models that have shown great promise in many NLP tasks.
-              Learn more about them at WILDML's page
+              Recurrent Neural Networks (RNNs) are popular models that have shown great promise in many NLP tasks. Learn more about them
+              at WILDML's page
               <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/">
-              Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs</a>
+                Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs</a>
             </p>
             <p>
               These are some uses for Recurren Neural Networks I find Interesting.
@@ -104,11 +106,10 @@
           <div class="row">
             <div class="col-md-8 mx-auto">
               <p>
-                This is a comedy routine written by a computer using recurrent neural networks.
-                I used <a href="https://github.com/karpathy/char-rnn">Andrej Karpathy's implementation</a> of torch-rnn.
-                I have input comedy routines from some of the biggest names of the decade.
-                The output is an strange jumble of jokes that don't make sense.
-                There are a few funny ones though.
+                This is a comedy routine written by a computer using recurrent neural networks. I used
+                <a href="https://github.com/karpathy/char-rnn">Andrej Karpathy's implementation</a> of torch-rnn. I have input comedy routines from some of the biggest
+                names of the decade. The output is an strange jumble of jokes that don't make sense. There are a few funny
+                ones though.
               </p>
               <p>
                 The raw text can be found
@@ -125,81 +126,114 @@
             <source src="../assets/rnn-text-01.mp3" type="audio/mpeg" />
             <a href="../assets/rnn-text-01.mp3">rnn-01</a>
           </audio>
-        </div> 
-      </div> 
+        </div>
+      </div>
 
-        
+
       <div class="row">
         <div class="col-lg-10 mx-auto comedians">
-            <h4>Comedians that were used</h4>
-            <div class="row">
-              <div class="col-lg-3 mx-auto text-left">
-                <ul>
-                  <li>AL MADRIGAL</li>
-                  <li>ALI WONG</li>
-                  <li>AMY SCHUMER</li>
-                  <li>AMY SCHUMER</li>
-                  <li>ANTHONY JESELNIK</li>
-                  <li>AZIZ ANSARI</li>
-                  <li>BIG JAY OAKERSON</li>
-                  <li>BILL MAHER</li>
-                  <li>CHRIS GETHARD</li>
-                  <li>CHRIS ROCK</li>
-                  <li>CHRISTINA PAZSITZKY</li>
-                  <li>CRISTELA ALONZO</li>
-                  <li>DANIEL TOSH</li>
-                  <li>DAVE CHAPPELLE</li>
-                  <li>DONALD GLOVER</li>
-                  <li>DOUG STANHOPE</li>
-                  <li>DYLAN MORAN</li>
-                </ul>
-              </div>
-              <div class="col-lg-3 mx-auto text-left">
-                <ul>
-                  <li>EDDIE GRIFFIN</li>
-                  <li>ERIK GRIFFIN</li>
-                  <li>FRANKIE BOYLE</li>
-                  <li>GABRIEL IGLESIAS</li>
-                  <li>HANNIBAL BURESS</li>
-                  <li>HASAN MINHAJ</li>
-                  <li>JACK WHITEHALL</li>
-                  <li>JEN KIRKMAN</li>
-                  <li>JIM GAFFIGAN</li>
-                  <li>JIM JEFFERIES</li>
-                  <li>JIM NORTON</li>
-                  <li>JOE ROGAN</li>
-                  <li>JOHN MULANEY</li>
-                  <li>JUDAH FRIEDLANDER</li>
-                  <li>KEVIN HART</li>
-                  <li>LEWIS BLACK</li>
-                  <li>LISA LAMPANELLI</li>
-                </ul>
-              </div>
-              <div class="col-lg-3 mx-auto text-left">
-                <ul>
-                  <li>MARC MARON</li>
-                  <li>MARIA BAMFORD</li>
-                  <li>MICHAEL CHE</li>
-                  <li>MIKE BIRBIGLIA</li>
-                  <li>NEAL BRENNAN</li>
-                  <li>NICK OFFERMAN</li>
-                  <li>PABLO FRANCISCO</li>
-                  <li>PATRICE O’NEAL</li>
-                  <li>PATTON OSWALT</li>
-                  <li>RICKY GERVAIS</li>
-                  <li>RORY SCOVEL</li>
-                  <li>RUSSELL BRAND</li>
-                  <li>RUSSELL HOWARD</li>
-                  <li>SARAH SILVERMAN</li>
-                  <li>TOM SEGURA</li>
-                  <li>TREVOR NOAH</li>
-                  <li>WANDA SYKES</li>
-                </ul>
-              </div>
+          <h4>Comedians that were used</h4>
+          <div class="row">
+            <div class="col-lg-3 mx-auto text-left">
+              <ul>
+                <li>AL MADRIGAL</li>
+                <li>ALI WONG</li>
+                <li>AMY SCHUMER</li>
+                <li>AMY SCHUMER</li>
+                <li>ANTHONY JESELNIK</li>
+                <li>AZIZ ANSARI</li>
+                <li>BIG JAY OAKERSON</li>
+                <li>BILL MAHER</li>
+                <li>CHRIS GETHARD</li>
+                <li>CHRIS ROCK</li>
+                <li>CHRISTINA PAZSITZKY</li>
+                <li>CRISTELA ALONZO</li>
+                <li>DANIEL TOSH</li>
+                <li>DAVE CHAPPELLE</li>
+                <li>DONALD GLOVER</li>
+                <li>DOUG STANHOPE</li>
+                <li>DYLAN MORAN</li>
+              </ul>
+            </div>
+            <div class="col-lg-3 mx-auto text-left">
+              <ul>
+                <li>EDDIE GRIFFIN</li>
+                <li>ERIK GRIFFIN</li>
+                <li>FRANKIE BOYLE</li>
+                <li>GABRIEL IGLESIAS</li>
+                <li>HANNIBAL BURESS</li>
+                <li>HASAN MINHAJ</li>
+                <li>JACK WHITEHALL</li>
+                <li>JEN KIRKMAN</li>
+                <li>JIM GAFFIGAN</li>
+                <li>JIM JEFFERIES</li>
+                <li>JIM NORTON</li>
+                <li>JOE ROGAN</li>
+                <li>JOHN MULANEY</li>
+                <li>JUDAH FRIEDLANDER</li>
+                <li>KEVIN HART</li>
+                <li>LEWIS BLACK</li>
+                <li>LISA LAMPANELLI</li>
+              </ul>
+            </div>
+            <div class="col-lg-3 mx-auto text-left">
+              <ul>
+                <li>MARC MARON</li>
+                <li>MARIA BAMFORD</li>
+                <li>MICHAEL CHE</li>
+                <li>MIKE BIRBIGLIA</li>
+                <li>NEAL BRENNAN</li>
+                <li>NICK OFFERMAN</li>
+                <li>PABLO FRANCISCO</li>
+                <li>PATRICE O’NEAL</li>
+                <li>PATTON OSWALT</li>
+                <li>RICKY GERVAIS</li>
+                <li>RORY SCOVEL</li>
+                <li>RUSSELL BRAND</li>
+                <li>RUSSELL HOWARD</li>
+                <li>SARAH SILVERMAN</li>
+                <li>TOM SEGURA</li>
+                <li>TREVOR NOAH</li>
+                <li>WANDA SYKES</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="" id="comments">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div id="disqus_thread"></div>
+          <script>
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+            var disqus_config = function () {
+              this.page.url = 'http://www.jackson2012.com/rnn/';  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = 'jackson2012/rnn'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://www-jackson2012-com.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          </noscript>
+
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -231,6 +265,7 @@
   <!-- Custom scripts for this template -->
   <script src="../js/jackson2012.js"></script>
 
+  <script id="dsq-count-scr" src="//www-jackson2012-com.disqus.com/count.js" async></script>
 </body>
 
 </html>
