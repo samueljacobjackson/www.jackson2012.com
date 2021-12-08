@@ -6,11 +6,15 @@ body {
 body {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
+.modal {
+    margin-top: 40vh;
+}
 a {
     color: #b65518;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    cursor: pointer;
 }
 a:hover,
 a:focus {
@@ -181,6 +185,7 @@ header.masthead .device-container {
     margin-left: auto;
 }
 header.masthead .device-container .screen {
+    padding-top: 3rem;
     margin: auto;
     width: 50%;
 }
@@ -217,19 +222,19 @@ section.hack h2 {
     font-size: 50px;
     margin-top: 0;
 }
-section.hack .badges .badge-link {
+.badges .badge-link {
     display: block;
     margin-bottom: 25px;
 }
-section.hack .badges .badge-link:last-child {
+.badges .badge-link:last-child {
     margin-bottom: 0;
 }
-section.hack .badges .badge-link img {
+.badges .badge-link img {
     height: 128px;
     padding-bottom: 30px
 }
 @media (min-width: 768px) {
-    section.hack .badges .badge-link {
+    .badges .badge-link {
         display: inline-block;
         margin-bottom: 0;
     }
@@ -239,30 +244,30 @@ section.hack .badges .badge-link img {
         font-size: 70px;
     }
 }
-section.vtable .section-heading {
+section.game .section-heading {
     margin-bottom: 25px;
 }
-section.vtable h2 {
+section.game h2 {
     margin-top: 0;
     font-size: 50px;
 }
-section.vtable .section-heading p {
+section.game .section-heading p {
     margin-bottom: 0;
 }
-section.vtable .feature-item {
+section.game .feature-item {
     padding-top: 25px;
     padding-bottom: 50px;
     text-align: center;
 }
-section.vtable .feature-item h3 {
+section.game .feature-item h3 {
     font-size: 30px;
     padding-bottom: 30px;
 }
-section.vtable .feature-item img {
+section.game .feature-item img {
     max-width: 90%;
 }
 @media (min-width: 768px) {
-    section.vtable h2 {
+    section.game h2 {
         font-size: 70px;
     }
 }
@@ -351,7 +356,7 @@ footer ul li a.active {
     background: -webkit-linear-gradient(#fdcc52, #fdc539);
     background: linear-gradient(#fdcc52, #fdc539);
 }
-.bg-vtable {
+.bg-game {
     background: #fd7752;
     background: -webkit-linear-gradient(#fd7752, #fd6339);
     background: linear-gradient(#fd7752, #fd6339);
