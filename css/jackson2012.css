@@ -193,12 +193,12 @@ header.masthead .header-content h1 {
     display: inline;
     /*margin: auto;
     width: 50%;*/
+    width: 25%;
 }
 
-.screen img {
+.screen > a > img {
     border-radius: 3px;
-    max-width: 100px;
-    max-height: 100px;
+    min-width: 100%;
 }
 
 @media (min-width: 992px) {
