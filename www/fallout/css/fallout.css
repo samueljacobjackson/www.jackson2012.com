@@ -1,0 +1,21 @@
+body {
+  background: #5283fd;
+  background: -webkit-linear-gradient(#3d94fb, #3971fd);
+  background: linear-gradient(#3d94fb, #3971fd);
+}
+
+.jumbotron {
+  text-align: center;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.gallery {
+  padding: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 0;
+  position: relative;
+}
